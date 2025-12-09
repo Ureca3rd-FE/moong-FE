@@ -1,0 +1,6 @@
+// 텍스트 베리어블 사용 예시를 위한 파일이며, 실제로 사용되지 않는 값입니다.
+
+.example {
+  @include text-style($text-dandan-title1);
+  color: $color-main;
+}
