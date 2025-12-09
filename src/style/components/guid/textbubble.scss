@@ -1,0 +1,39 @@
+@use '../../global/color' as c;
+@use '../../global/text-style' as ts;
+
+.text-bubble-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-bubble {
+  background-color: c.$color-main;
+  color: c.$color-white;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 6px 20px;
+  @include ts.text-style(ts.$text-pretendard-14);
+}
+
+.arrow-bottom {
+  width: 0;
+  height: 0;
+
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 9px solid transparent;
+
+  border-top: 9px solid c.$color-main;
+}
+
+.arrow-top {
+  width: 0;
+  height: 0;
+
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 9px solid transparent;
+
+  border-bottom: 9px solid c.$color-main;
+}

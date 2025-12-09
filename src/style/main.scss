@@ -4,6 +4,8 @@
 @use './example.scss';
 @use './components/button.scss';
 
+@use './components/guid/textbubble.scss';
+
 html {
   background-color: #fffbf8;
 }
