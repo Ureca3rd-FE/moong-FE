@@ -1,5 +1,3 @@
-import type { ReactElement } from 'react';
-
 const typeToClassNameMap = {
   small: 'button-small',
   blue: 'button-large-blue',
@@ -12,11 +10,15 @@ const Button = ({
   children,
 }: {
   type?: 'small' | 'blue' | 'large' | 'disabled';
-  children: ReactElement | string;
+  children: React.ReactNode;
 }) => {
   const className = typeToClassNameMap[type] || 'button-large';
 
-  return <button className={className}>{children}</button>;
+  return (
+    <button className={className} disabled={type === 'disabled'}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;
