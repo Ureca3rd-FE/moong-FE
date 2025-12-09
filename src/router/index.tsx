@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 import Loading from '../components/common/Loading';
+import Guid from '../pages/Guid';
 
 const Login = lazy(() => import('../pages/Login'));
 const Signup = lazy(() => import('../pages/Signup'));
@@ -34,6 +35,15 @@ const router = createBrowserRouter([
     element: (
       <Suspense fallback={<Loading />}>
         <Signup />
+      </Suspense>
+    ),
+  },
+
+  {
+    path: 'guid',
+    element: (
+      <Suspense fallback={<Loading />}>
+        <Guid />
       </Suspense>
     ),
   },
