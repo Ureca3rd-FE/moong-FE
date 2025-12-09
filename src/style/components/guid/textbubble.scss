@@ -1,10 +1,9 @@
 @use '../../global/color' as c;
 @use '../../global/text-style' as ts;
+@use '../../global/align';
 
 .text-bubble-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @extend %align-column-center;
 }
 
 .text-bubble {
