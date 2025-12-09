@@ -1,4 +1,15 @@
-@import './global/color.scss';
-@import './global/text-style.scss';
+@use './global/color.scss';
+@use './global/text-style.scss';
 
-@import './example.scss';
+@use './example.scss';
+
+html {
+  background-color: #fffbf8;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+}

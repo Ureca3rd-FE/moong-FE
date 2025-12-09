@@ -1,6 +1,9 @@
 // 텍스트 베리어블 사용 예시를 위한 파일이며, 실제로 사용되지 않는 값입니다.
+@use './global/text-style' as ts;
+@use './global/color' as c;
 
 .example {
-  @include text-style($text-dandan-title1);
-  color: $color-main;
+  // 2. 이제 네임스페이스를 사용하여 믹스인과 변수를 호출합니다.
+  @include ts.text-style(ts.$text-dandan-title1);
+  color: c.$color-main;
 }
