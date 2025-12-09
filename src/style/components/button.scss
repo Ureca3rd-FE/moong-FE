@@ -16,6 +16,13 @@
   color: white;
 }
 
+.button-large-blue {
+  width: 300px;
+  @extend %button-sizing;
+  background-color: c.$color-blue-middle;
+  color: white;
+}
+
 .button-disabled {
   width: 300px;
   @extend %button-sizing;
