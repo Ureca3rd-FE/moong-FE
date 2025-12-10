@@ -5,7 +5,13 @@ const ShareButton = ({ type }: { type: 'kakao' | 'link' }) => {
   return (
     <>
       {type === 'link' && (
-        <button className="link-share-button">
+        <button
+          className="link-share-button"
+          onClick={() => {
+            // TODO: 배포 후 수정 필요
+            navigator.clipboard.writeText('{도메인 주소}/{userId}');
+          }}
+        >
           <Link />
         </button>
       )}
