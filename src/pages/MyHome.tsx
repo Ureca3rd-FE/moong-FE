@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import '../style/home.scss';
 import Button from '../components/common/Button';
-import homeGroupImg from '../assets/images/Home_Group.svg';
+import HomeGroup from '../assets/images/Home_Group.svg?react';
 import logo from "../assets/images/logo.svg";
 import letter from "../assets/images/letter.svg";
 import branchBImg from "../assets/images/branch_B.svg";
@@ -32,7 +32,7 @@ const MyHome = () => {
               박예진<span className="my-home__user-name-suffix">님</span>
             </h1>
           </div>
-          <img src={homeGroupImg} alt="홈 그룹" />
+          <HomeGroup className="my-home__home-group-svg" />
           <div className="my-home__ingredients">
             <div className="my-home__ingredient-item">
               <img src={branchBImg} alt="나뭇가지" />
