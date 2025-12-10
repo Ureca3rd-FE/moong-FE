@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import '../style/home.scss';
 import Button from '../components/common/Button';
 import homeGroupImg from '../assets/images/Home_Group.svg';
@@ -12,13 +13,14 @@ import kakaoLinkImg from "../assets/images/KakaoLink.svg";
 import hyperLinkImg from "../assets/images/HyperLink.svg";
 
 const MyHome = () => {
+  const navigate = useNavigate();
   return (
     <div className="my-home">
       <div className="my-home__header">
         <div className="my-home__header-icon">
           <img src = {logo} alt ="로고"/>
         </div>
-        <div className="my-home__header-icon">
+        <div className="my-home__header-icon" onClick={() => navigate('/message')}>
           <img src = {letter} alt = "편지기록함"/>
         </div>
       </div>
@@ -57,7 +59,7 @@ const MyHome = () => {
       </div>
 
       <div className="my-home__actions">
-        <Button type="large">재료를 모아주세요</Button>
+        <Button type="large">재료를 모두 모아주세요</Button>
         <p className="my-home__share-text">친구에게 공유하고 재료 받기</p>
         <div className="my-home__share-icons">
           <img src={hyperLinkImg} alt="링크 공유" className="my-home__share-icon" />
