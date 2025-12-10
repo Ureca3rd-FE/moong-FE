@@ -1,5 +1,5 @@
-@use '../../global/color' as c;
-@use '../../global/text-style' as ts;
+@use '../../global/color' as *;
+@use '../../global/text-style' as *;
 @use '../../global/align' as *;
 
 .text-bubble-wrapper {
@@ -7,12 +7,13 @@
 }
 
 .text-bubble {
-  background-color: c.$color-main;
-  color: c.$color-white;
+  background-color: $color-main;
+  color: $color-white;
   width: fit-content;
   border-radius: 10px;
   padding: 6px 20px;
-  @include ts.text-style(ts.$text-pretendard-14);
+  @include text-style($text-pretendard-14);
+  text-align: center;
 }
 
 .arrow-bottom {
@@ -23,7 +24,7 @@
   border-right: 7px solid transparent;
   border-bottom: 9px solid transparent;
 
-  border-top: 9px solid c.$color-main;
+  border-top: 9px solid $color-main;
 }
 
 .arrow-top {
@@ -34,5 +35,5 @@
   border-right: 7px solid transparent;
   border-top: 9px solid transparent;
 
-  border-bottom: 9px solid c.$color-main;
+  border-bottom: 9px solid $color-main;
 }
