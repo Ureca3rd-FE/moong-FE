@@ -1,38 +1,38 @@
-@use '../global/text-style' as ts;
-@use '../global/color' as c;
+@use '../global/text-style' as *;
+@use '../global/color' as *;
 
 %button-sizing {
   height: 45px;
   border-radius: 15px;
   border: none;
   outline: none;
-  @include ts.text-style(ts.$text-dandan-20);
+  @include text-style($text-dandan-20);
 }
 
 .button-large {
   width: 300px;
   @extend %button-sizing;
-  background-color: c.$color-main;
+  background-color: $color-main;
   color: white;
 }
 
 .button-large-blue {
   width: 300px;
   @extend %button-sizing;
-  background-color: c.$color-blue-middle;
+  background-color: $color-blue-middle;
   color: white;
 }
 
 .button-disabled {
   width: 300px;
   @extend %button-sizing;
-  background-color: c.$color-gray-600;
-  color: c.$color-gray-800;
+  background-color: $color-gray-600;
+  color: $color-gray-800;
 }
 
 .button-small {
   width: 90px;
   @extend %button-sizing;
-  background-color: c.$color-main;
+  background-color: $color-main;
   color: white;
 }

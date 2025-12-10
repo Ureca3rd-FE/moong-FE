@@ -1,8 +1,12 @@
 @use './global/color.scss';
 @use './global/text-style.scss';
+@use './global/align.scss';
 
 @use './example.scss';
 @use './components/button.scss';
+
+@use './components/guide/textbubble.scss';
+@use './components/guide/guide.scss';
 
 html {
   background-color: #fffbf8;

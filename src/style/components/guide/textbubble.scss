@@ -1,0 +1,39 @@
+@use '../../global/color' as *;
+@use '../../global/text-style' as *;
+@use '../../global/align' as *;
+
+.text-bubble-wrapper {
+  @extend %align-column-center;
+}
+
+.text-bubble {
+  background-color: $color-main;
+  color: $color-white;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 6px 20px;
+  @include text-style($text-pretendard-14);
+  text-align: center;
+}
+
+.arrow-bottom {
+  width: 0;
+  height: 0;
+
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 9px solid transparent;
+
+  border-top: 9px solid $color-main;
+}
+
+.arrow-top {
+  width: 0;
+  height: 0;
+
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 9px solid transparent;
+
+  border-bottom: 9px solid $color-main;
+}
