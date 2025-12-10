@@ -107,5 +107,19 @@
     align-items: center;
     margin-top: 30px;
   }
+
+  &__home-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+    
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+  }
 }
 
