@@ -1,6 +1,6 @@
 @use '../../global/color' as c;
 @use '../../global/text-style' as ts;
-@use '../../global/align';
+@use '../../global/align' as *;
 
 .text-bubble-wrapper {
   @extend %align-column-center;

@@ -30,6 +30,9 @@ export const Funnel: FC<FunnelProps> = ({ steps, step, children }) => {
 };
 
 export const useFunnel = (steps: Array<number>, defaultStep: number) => {
+  if (steps.length === 0) {
+    throw new Error('useFunnel: `steps` must contain at least one step.');
+  }
   // 현재 단계(step) 상태 관리
   const [stepState, setStepState] = useState(
     steps.includes(defaultStep) ? defaultStep : steps[0],
