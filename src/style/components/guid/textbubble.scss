@@ -13,6 +13,7 @@
   border-radius: 10px;
   padding: 6px 20px;
   @include ts.text-style(ts.$text-pretendard-14);
+  text-align: center;
 }
 
 .arrow-bottom {
