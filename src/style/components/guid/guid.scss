@@ -1,0 +1,23 @@
+@use '../../global/color.scss' as *;
+@use '../../global/align.scss' as *;
+@use '../../global/text-style.scss' as *;
+
+.guid-background {
+  @extend %align-column-center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+
+  color: $color-white;
+
+  span {
+    margin-top: 80px;
+    @include text-style($text-pretendard-24-600);
+  }
+}
