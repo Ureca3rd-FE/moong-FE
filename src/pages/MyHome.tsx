@@ -17,11 +17,10 @@ const MyHome = () => {
       </div>
 
       <div className="my-home__content">
-        <div className="my-home__user-section">
-          <h1 className="my-home__user-name">박예진님</h1>
-        </div>
-
         <div className="my-home__home-group">
+          <div className="my-home__user-section">
+            <h1 className="my-home__user-name">박예진님</h1>
+          </div>
           <img src={homeGroupImg} alt="홈 그룹" />
         </div>
       </div>
