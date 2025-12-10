@@ -1,17 +1,12 @@
-import { useState } from 'react';
-import { Funnel, Step } from '../components/common/Funnel';
+import { useFunnel, Step } from '../components/common/Funnel'; // useFunnel 추가 및 경로 수정
 import TextBubble from '../components/guid/TextBubble';
 
 const FUNNEL_STEPS = [1, 2, 3, 4];
-type FunnelStep = (typeof FUNNEL_STEPS)[number];
 
 const Guid = () => {
-  const [stepState, setStepState] = useState<FunnelStep>(FUNNEL_STEPS[0]);
-
-  const FunnelComponent = ({ children }: { children: React.ReactNode }) => (
-    <Funnel steps={FUNNEL_STEPS} step={stepState}>
-      {children}
-    </Funnel>
+  const [FunnelComponent, setStepState] = useFunnel(
+    FUNNEL_STEPS,
+    FUNNEL_STEPS[0],
   );
 
   return (
