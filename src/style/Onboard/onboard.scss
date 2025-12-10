@@ -1,0 +1,13 @@
+@use './global/color.scss' as *;
+@use './global/text-style.scss' as *;
+
+.text{
+    color : $color-black;
+    @include text-style($text-pretendard-14);
+}
+
+.image{
+    width: 155px;
+    height: 188px;
+    padding-bottom: 54px;
+}
