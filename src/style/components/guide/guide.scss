@@ -2,7 +2,7 @@
 @use '../../global/align.scss' as *;
 @use '../../global/text-style.scss' as *;
 
-.guid-background {
+.guide-background {
   @extend %align-column-center;
 
   position: fixed;

@@ -4,7 +4,7 @@ import TextBubble from '../components/guid/TextBubble';
 
 const FUNNEL_STEPS = [1, 2, 3, 4];
 
-const Guid = () => {
+const Guide = () => {
   const [FunnelComponent, setStepState, stepState] = useFunnel(
     FUNNEL_STEPS,
     FUNNEL_STEPS[0],
@@ -18,7 +18,7 @@ const Guid = () => {
   }
   return (
     <div>
-      <div className="guid-background" onClick={handleNext}>
+      <div className="guide-background" onClick={handleNext}>
         <span>{stepState} / 4</span>
       </div>
 
@@ -49,4 +49,4 @@ const Guid = () => {
   );
 };
 
-export default Guid;
+export default Guide;
