@@ -19,7 +19,9 @@ const MyHome = () => {
       <div className="my-home__content">
         <div className="my-home__home-group">
           <div className="my-home__user-section">
-            <h1 className="my-home__user-name">박예진님</h1>
+            <h1 className="my-home__user-name">
+              박예진<span className="my-home__user-name-suffix">님</span>
+            </h1>
           </div>
           <img src={homeGroupImg} alt="홈 그룹" />
         </div>
