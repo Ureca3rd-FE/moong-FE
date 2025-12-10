@@ -4,7 +4,7 @@
 .my-home {
   min-height: 100vh;
   background-color: $color-background;
-  padding: 20px 20px 40px;
+  padding: 15px 20px 40px;
   display: flex;
   flex-direction: column;
 
@@ -12,7 +12,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    padding-bottom: 23px;
 
     &-icon {
       width: 24px;
@@ -30,14 +30,14 @@
   }
 
   &__content {
-    flex: 1;
+    //flex: 1;
     display: flex;
     flex-direction: column;
   }
 
   &__user-section {
     position: absolute;
-    top: 180px;
+    top: 98px;
     left: 0;
     display: flex;
     align-items: center;
@@ -118,7 +118,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 50px;
     padding-top: 0;
   }
 
@@ -128,12 +128,15 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    flex: 1;
+    padding-top : 54px;
+    //flex: 1;
     
     img {
       width: 100%;
       max-width: 100%;
       height: auto;
+      display: block;
+      margin: 0 auto;
     }
   }
 }
