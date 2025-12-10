@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useFunnel, Step } from '../components/common/Funnel';
-import TextBubble from '../components/guid/TextBubble';
+import TextBubble from '../components/guide/TextBubble';
 
 const FUNNEL_STEPS = [1, 2, 3, 4];
 
