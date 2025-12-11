@@ -1,8 +1,9 @@
 @use './global/color.scss' as *;
 @use './global/text-style.scss' as *;
+@use './global/align.scss' as *;
 
 .my-home {
-  min-height: 100vh;
+  // min-height: 100vh;
   background-color: $color-background;
   padding: 15px 20px 40px;
   display: flex;
@@ -22,11 +23,11 @@
       justify-content: center;
       cursor: pointer;
       transition: opacity 0.2s;
-      
+
       &:hover {
         opacity: 0.7;
       }
-      
+
       img {
         width: 24px;
         height: 24px;
@@ -57,7 +58,7 @@
     @include text-style($text-dandan-title1);
     color: $color-black;
     margin: 0;
-    
+
     &-suffix {
       @include text-style($text-dandan-subtitle);
     }
@@ -67,7 +68,7 @@
     position: absolute;
     right: 0;
     z-index: 0;
-    
+
     img {
       width: 120px;
       height: auto;
@@ -129,9 +130,8 @@
   }
 
   &__share-text {
-    @include text-style($text-pretendard-14-600);
+    @include text-style($text-pretendard-14);
     color: $color-black;
-    padding-top: 36px;
   }
 
   &__share-icons {
@@ -158,9 +158,9 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding-top : 54px;
+    padding-top: 54px;
     //flex: 1;
-    
+
     &-svg {
       width: 100%;
       max-width: 100%;
@@ -172,7 +172,7 @@
 
   &__ingredients {
     position: absolute;
-    top: 60%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
@@ -231,3 +231,10 @@
   }
 }
 
+.share-group {
+  @extend %align-column-center;
+  background-color: $color-background;
+  margin-top: 25px;
+  padding: 10px;
+  gap: 16px;
+}

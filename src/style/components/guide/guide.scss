@@ -12,12 +12,96 @@
   bottom: 0;
 
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  z-index: 10;
+}
 
+.guid-step {
+  position: fixed;
+  z-index: 20;
   color: $color-white;
+  @include text-style($text-pretendard-24-600);
 
-  span {
-    margin-top: 80px;
-    @include text-style($text-pretendard-24-600);
+  width: fit-content;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.guide-focus {
+  position: absolute;
+  z-index: 99;
+
+  background-color: transparent;
+}
+
+.guide-line {
+  background-color: $color-main;
+  height: 100px;
+  width: 1.5px;
+  position: fixed;
+  z-index: 99;
+  right: 39.5px;
+  top: 52px;
+}
+
+.step-1 {
+  .text-bubble-wrapper {
+    left: 0;
+    right: 0;
+    top: 560px;
+  }
+  .guide-focus {
+    // padding: 15px 20px 40px;
+    // width: 100%;
+    top: 121px;
+    left: 22.2px;
+    right: 24.2px;
+  }
+}
+
+.step-2 {
+  .text-bubble-wrapper {
+    left: 0;
+    right: 0;
+    top: 540px;
+  }
+
+  .guide-focus {
+    top: 599px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+  }
+}
+
+.step-3 {
+  .text-bubble-wrapper {
+    top: 150px;
+    right: 15px;
+  }
+
+  .guide-focus {
+    @extend %align-column-center;
+    top: 16px;
+    right: 21px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: $color-background;
+    border: 2px solid $color-main;
+  }
+}
+
+.step-4 {
+  .text-bubble-wrapper {
+    left: 0;
+    right: 0;
+    top: 610px;
+  }
+
+  .guide-focus {
+    top: 643px;
+    left: 0;
+    right: 0;
+    width: 100%;
   }
 }

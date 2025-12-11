@@ -1,15 +1,25 @@
 import { useNavigate } from 'react-router-dom';
-import { useFunnel, Step } from '../components/common/Funnel';
+import { useFunnel } from '../components/common/Funnel';
 import TextBubble from '../components/guide/TextBubble';
+import MyHome from './MyHome';
+import { useEffect } from 'react';
+import IngredientGroup from '../components/home/IngredientGroup';
+import Button from '../components/common/Button';
+import ShareGroup from '../components/home/ShareGroup';
+import Letter from '../assets/images/letter.svg?react';
 
 const FUNNEL_STEPS = [1, 2, 3, 4];
 
 const Guide = () => {
-  const [FunnelComponent, setStepState, stepState] = useFunnel(
-    FUNNEL_STEPS,
-    FUNNEL_STEPS[0],
-  );
+  const [, setStepState, stepState] = useFunnel(FUNNEL_STEPS, FUNNEL_STEPS[0]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
 
   function handleNext() {
     if (stepState === FUNNEL_STEPS[FUNNEL_STEPS.length - 1]) {
@@ -17,35 +27,55 @@ const Guide = () => {
     } else setStepState(stepState + 1);
   }
   return (
-    <div>
-      <div className="guide-background" onClick={handleNext}>
-        <span>{stepState} / 4</span>
-      </div>
+    <>
+      <div className="guide-background" onClick={handleNext}></div>
+      <span className="guid-step">{stepState} / 4</span>
 
-      <FunnelComponent>
-        <Step name={1}>
-          <TextBubble type="none">재료를 모을 수 있어요 </TextBubble>
-        </Step>
+      {stepState === 1 && (
+        <div className="step-1">
+          <div className="guide-focus">
+            <IngredientGroup />
+          </div>
+          <TextBubble type="top">재료를 모을 수 있어요 </TextBubble>
+        </div>
+      )}
 
-        <Step name={2}>
+      {stepState === 2 && (
+        <div className="step-2">
+          <div className="guide-focus">
+            <Button>눈사람 만들기</Button>
+          </div>
           <TextBubble type="bottom">
             재료를 모두 모으면 <br /> 눈사람을 만들 수 있어요!
           </TextBubble>
-        </Step>
+        </div>
+      )}
 
-        <Step name={3}>
+      {stepState === 3 && (
+        <div className="step-3">
+          <div className="guide-focus">
+            <Letter height={24} width={24} />
+          </div>
+          <div className="guide-line" />
           <TextBubble type="none">
             만들어진 눈사람은 <br /> 여기서 확인할 수 있어요
           </TextBubble>
-        </Step>
+        </div>
+      )}
 
-        <Step name={4}>
+      {stepState === 4 && (
+        <div className="step-4">
+          <div className="guide-focus">
+            <ShareGroup />
+          </div>
           <TextBubble type="bottom">
             재료가 부족하다면 <br /> 친구에게 요청해보세요!
           </TextBubble>
-        </Step>
-      </FunnelComponent>
-    </div>
+        </div>
+      )}
+
+      <MyHome />
+    </>
   );
 };
 
