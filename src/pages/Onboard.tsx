@@ -10,6 +10,13 @@ import '../style/pages/Onboard/onboard.scss';
 
 const Onboard = () => {
   const navigate = useNavigate();
+  const materials = [
+    {src : snowball, alt : "눈"},
+    {src : rock, alt : "돌"},
+    {src : branch, alt : "나뭇가지"},
+    {src : scarf, alt : "당근"},
+    {src : carrot, alt : "목도리"},
+  ]
 
   return (
     <div className="onboard">
@@ -18,10 +25,27 @@ const Onboard = () => {
           <img src={snowman_v} alt="눈사람" className="onboard__image" />
         </div>
 
-        <div className="onboard__materials">
-          <img src={snowball} alt="눈덩이" className="onboard__material" />
-          <img src={rock} alt="돌" className="onboard__material" />
-          <img src={branch} alt="나뭇가지" className="onboard__material" />
+        <div className="onboard__materials-wrapper">
+          <div className="onboard__materials">
+            {/* 첫 번째 세트 */}
+            {materials.map((material, index) => (
+              <img
+                key={`set1-${index}`}
+                src={material.src}
+                alt={material.alt}
+                className="onboard__material"
+              />
+            ))}
+            {/* 두 번째 세트 (무한 반복용) */}
+            {materials.map((material, index) => (
+              <img
+                key={`set2-${index}`}
+                src={material.src}
+                alt={material.alt}
+                className="onboard__material"
+              />
+            ))}
+          </div>
         </div>
 
         <div className="onboard__button">

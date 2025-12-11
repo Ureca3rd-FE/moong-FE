@@ -27,19 +27,26 @@
     object-fit: contain;
   }
 
+  &__ㅡmaterials_slide {
+    width: 100%;
+    max-width: 350px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
   &__materials {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 41px;
+    animation : linear infinite;
     margin-bottom: 32px;
   }
 
   &__material {
     width: 80px;
     height: 80px;
+    flex-shrink: 0; //크기고정
     object-fit: contain;
-    opacity: 0.8;
 
     &:hover {
       transform: translateY(-5px);
@@ -74,5 +81,14 @@
     &:hover {
       opacity: 0.7;
     }
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-550px);
   }
 }
