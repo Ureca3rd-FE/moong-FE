@@ -5,6 +5,7 @@ import MyHome from './MyHome';
 import { useEffect } from 'react';
 import IngredientGroup from '../components/home/IngredientGroup';
 import Button from '../components/common/Button';
+import ShareGroup from '../components/home/ShareGroup';
 
 const FUNNEL_STEPS = [1, 2, 3, 4];
 
@@ -49,29 +50,26 @@ const Guide = () => {
         </div>
       )}
 
-      <MyHome />
-
-      {/* <FunnelComponent>
-        <Step name={1}></Step>
-
-        <Step name={2}>
-          <TextBubble type="bottom">
-            재료를 모두 모으면 <br /> 눈사람을 만들 수 있어요!
-          </TextBubble>
-        </Step>
-
-        <Step name={3}>
+      {stepState === 3 && (
+        <div className="step-3">
           <TextBubble type="none">
             만들어진 눈사람은 <br /> 여기서 확인할 수 있어요
           </TextBubble>
-        </Step>
+        </div>
+      )}
 
-        <Step name={4}>
+      {stepState === 4 && (
+        <div className="step-4">
+          <div className="guide-focus">
+            <ShareGroup />
+          </div>
           <TextBubble type="bottom">
             재료가 부족하다면 <br /> 친구에게 요청해보세요!
           </TextBubble>
-        </Step>
-      </FunnelComponent> */}
+        </div>
+      )}
+
+      <MyHome />
     </>
   );
 };

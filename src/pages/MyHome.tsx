@@ -3,8 +3,8 @@ import '../style/home.scss';
 import Button from '../components/common/Button';
 import logo from '../assets/images/logo.svg';
 import letter from '../assets/images/letter.svg';
-import ShareButton from '../components/home/ShareButton';
 import IngredientGroup from '../components/home/IngredientGroup';
+import ShareGroup from '../components/home/ShareGroup';
 
 const MyHome = () => {
   const navigate = useNavigate();
@@ -36,11 +36,7 @@ const MyHome = () => {
 
       <div className="my-home__actions">
         <Button type="disabled">재료를 모두 모아주세요</Button>
-        <p className="my-home__share-text">친구에게 공유하고 재료 받기</p>
-        <div className="my-home__share-icons">
-          <ShareButton type="link" />
-          <ShareButton type="kakao" />
-        </div>
+        <ShareGroup />
       </div>
     </div>
   );

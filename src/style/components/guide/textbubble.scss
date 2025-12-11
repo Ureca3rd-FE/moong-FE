@@ -5,8 +5,6 @@
 .text-bubble-wrapper {
   @extend %align-column-center;
   position: fixed;
-  left: 0;
-  right: 0;
   z-index: 50;
 }
 
@@ -44,6 +42,8 @@
 
 .step-1 {
   .text-bubble-wrapper {
+    left: 0;
+    right: 0;
     top: 560px;
   }
   .guide-focus {
@@ -55,11 +55,28 @@
 
 .step-2 {
   .text-bubble-wrapper {
+    left: 0;
+    right: 0;
     top: 540px;
   }
 
   .guide-focus {
     top: 599px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+  }
+}
+
+.step-4 {
+  .text-bubble-wrapper {
+    left: 0;
+    right: 0;
+    top: 610px;
+  }
+
+  .guide-focus {
+    top: 644px;
     left: 50%;
     transform: translateX(-50%);
     width: fit-content;

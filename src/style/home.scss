@@ -1,5 +1,6 @@
 @use './global/color.scss' as *;
 @use './global/text-style.scss' as *;
+@use './global/align.scss' as *;
 
 .my-home {
   min-height: 100vh;
@@ -129,9 +130,8 @@
   }
 
   &__share-text {
-    @include text-style($text-pretendard-14-600);
+    @include text-style($text-pretendard-14);
     color: $color-black;
-    padding-top: 36px;
   }
 
   &__share-icons {
@@ -229,4 +229,12 @@
     color: $color-black;
     text-align: center;
   }
+}
+
+.share-group {
+  @extend %align-column-center;
+  background-color: $color-background;
+  margin-top: 26px;
+  padding: 10px;
+  gap: 16px;
 }
