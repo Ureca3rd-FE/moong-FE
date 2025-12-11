@@ -17,6 +17,7 @@ const Signup = () => {
       <div className="login_container">
         <div className="login_field">
           <label className="login_label">닉네임</label>
+          <div className = "login_input-row">
           <TextField
             type="text"
             size="medium"
@@ -24,6 +25,8 @@ const Signup = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+          <Button type="small">중복검사</Button>
+          </div>
         </div>
 
         <div className="login_field">
@@ -50,7 +53,7 @@ const Signup = () => {
         </div>
 
         <div className="login_button">
-          <Button type="large">로그인</Button>
+          <Button type="large">회원가입</Button>
         </div>
       </div>
     </div>

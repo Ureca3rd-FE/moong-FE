@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 33px;
+  padding: 0 28px;
 
   &_container {
     width: 100%;
@@ -30,7 +30,18 @@
   &_label {
     @include text-style($text-pretendard-14);
     color: $color-black;
-    //margin-bottom: 15px;
+    margin-bottom: 15px;
+  }
+
+  &_input-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .textfield-large {
+      flex: 1;
+      min-width: 0;
+    }
   }
 
   &_password-wrapper {
