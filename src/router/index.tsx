@@ -5,7 +5,7 @@ import Loading from '../components/common/Loading';
 import Guide from '../pages/Guide';
 
 const Login = lazy(() => import('../pages/Login'));
-const Signup = lazy(() => import('../pages/Signup'));
+const Signup = lazy(() => import('../pages/Singup'));
 const MyHome = lazy(() => import('../pages/MyHome'));
 const OthersHome = lazy(() => import('../pages/OthersHome'));
 const Message = lazy(() => import('../pages/Message/Message'));
