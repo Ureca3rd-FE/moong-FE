@@ -2,15 +2,14 @@ import { useNavigate } from 'react-router-dom';
 import '../style/home.scss';
 import Button from '../components/common/Button';
 import HomeGroup from '../assets/images/Home_Group.svg?react';
-import logo from "../assets/images/logo.svg";
-import letter from "../assets/images/letter.svg";
-import branchBImg from "../assets/images/branch_B.svg";
-import carrotBImg from "../assets/images/carrot_B.svg";
-import rockBImg from "../assets/images/rock_B.svg";
-import scarfBImg from "../assets/images/scarf_B.svg";
-import snowballBImg from "../assets/images/snowball_B.svg";
-import kakaoLinkImg from "../assets/images/KakaoLink.svg";
-import hyperLinkImg from "../assets/images/HyperLink.svg";
+import logo from '../assets/images/logo.svg';
+import letter from '../assets/images/letter.svg';
+import branchBImg from '../assets/images/branch_B.svg';
+import carrotBImg from '../assets/images/carrot_B.svg';
+import rockBImg from '../assets/images/rock_B.svg';
+import scarfBImg from '../assets/images/scarf_B.svg';
+import snowballBImg from '../assets/images/snowball_B.svg';
+import ShareButton from '../components/home/ShareButton';
 
 const MyHome = () => {
   const navigate = useNavigate();
@@ -18,10 +17,13 @@ const MyHome = () => {
     <div className="my-home">
       <div className="my-home__header">
         <div className="my-home__header-icon">
-          <img src = {logo} alt ="로고"/>
+          <img src={logo} alt="로고" />
         </div>
-        <div className="my-home__header-icon" onClick={() => navigate('/Login')}>
-          <img src = {letter} alt = "편지기록함"/>
+        <div
+          className="my-home__header-icon"
+          onClick={() => navigate('/message')}
+        >
+          <img src={letter} alt="편지기록함" />
         </div>
       </div>
 
@@ -62,8 +64,8 @@ const MyHome = () => {
         <Button type="large">재료를 모두 모아주세요</Button>
         <p className="my-home__share-text">친구에게 공유하고 재료 받기</p>
         <div className="my-home__share-icons">
-          <img src={hyperLinkImg} alt="링크 공유" className="my-home__share-icon" />
-          <img src={kakaoLinkImg} alt="카카오톡 공유" className="my-home__share-icon" />
+          <ShareButton type="link" />
+          <ShareButton type="kakao" />
         </div>
       </div>
     </div>
