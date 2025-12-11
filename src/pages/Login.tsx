@@ -50,7 +50,7 @@ const Login = () => {
         </div>
 
         <div className="login_button">
-          <Button type="large">로그인</Button>
+          <Button type="large" onClick={() => navigate('/OnboardSuccess')}>로그인</Button>
         </div>
       </div>
     </div>

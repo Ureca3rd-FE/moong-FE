@@ -53,7 +53,7 @@ const Signup = () => {
         </div>
 
         <div className="login_button">
-          <Button type="large">회원가입</Button>
+          <Button type="large" onClick={() => navigate('/OnboardSuccess')}>회원가입</Button>
         </div>
       </div>
     </div>
