@@ -27,12 +27,8 @@
   transform: translateX(-50%);
 }
 
-.guide-wrapper {
-  padding: 15px 20px 40px;
-}
-
 .guide-focus {
-  position: fixed;
+  position: absolute;
   z-index: 99;
 
   background-color: transparent;
@@ -55,6 +51,8 @@
     top: 560px;
   }
   .guide-focus {
+    // padding: 15px 20px 40px;
+    // width: 100%;
     top: 121px;
     left: 22.2px;
     right: 24.2px;
@@ -101,9 +99,9 @@
   }
 
   .guide-focus {
-    top: 644px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: fit-content;
+    top: 643px;
+    left: 0;
+    right: 0;
+    width: 100%;
   }
 }
