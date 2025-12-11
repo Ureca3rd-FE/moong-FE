@@ -4,6 +4,11 @@
 
 .text-bubble-wrapper {
   @extend %align-column-center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 560px;
+  z-index: 50;
 }
 
 .text-bubble {

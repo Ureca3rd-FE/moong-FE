@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'; // React와 useEffect를 import 합니다.
+import { useEffect, useState } from 'react';
 import Kakao from '../../assets/images/kakao.svg?react';
 import Link from '../../assets/images/link.svg?react';
 

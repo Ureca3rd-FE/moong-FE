@@ -12,12 +12,30 @@
   bottom: 0;
 
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  z-index: 10;
+}
 
+.guid-step {
+  position: fixed;
+  z-index: 20;
   color: $color-white;
+  @include text-style($text-pretendard-24-600);
 
-  span {
-    margin-top: 80px;
-    @include text-style($text-pretendard-24-600);
-  }
+  width: fit-content;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.guide-wrapper {
+  padding: 15px 20px 40px;
+}
+
+.guide-focus {
+  position: fixed;
+  z-index: 99;
+  top: 121px;
+  left: 22.2px;
+  right: 24.2px;
+  background-color: transparent;
 }

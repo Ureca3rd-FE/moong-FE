@@ -22,11 +22,11 @@
       justify-content: center;
       cursor: pointer;
       transition: opacity 0.2s;
-      
+
       &:hover {
         opacity: 0.7;
       }
-      
+
       img {
         width: 24px;
         height: 24px;
@@ -57,7 +57,7 @@
     @include text-style($text-dandan-title1);
     color: $color-black;
     margin: 0;
-    
+
     &-suffix {
       @include text-style($text-dandan-subtitle);
     }
@@ -67,7 +67,7 @@
     position: absolute;
     right: 0;
     z-index: 0;
-    
+
     img {
       width: 120px;
       height: auto;
@@ -158,9 +158,9 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding-top : 54px;
+    padding-top: 54px;
     //flex: 1;
-    
+
     &-svg {
       width: 100%;
       max-width: 100%;
@@ -230,4 +230,3 @@
     text-align: center;
   }
 }
-

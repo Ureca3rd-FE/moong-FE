@@ -1,6 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { useFunnel, Step } from '../components/common/Funnel';
+import { useFunnel } from '../components/common/Funnel';
 import TextBubble from '../components/guide/TextBubble';
+import MyHome from './MyHome';
+import { useEffect } from 'react';
+import IngredientGroup from '../components/home/IngredientGroup';
+import Button from '../components/common/Button';
 
 const FUNNEL_STEPS = [1, 2, 3, 4];
 
@@ -11,21 +15,36 @@ const Guide = () => {
   );
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
   function handleNext() {
     if (stepState === FUNNEL_STEPS[FUNNEL_STEPS.length - 1]) {
       navigate('/');
     } else setStepState(stepState + 1);
   }
   return (
-    <div>
-      <div className="guide-background" onClick={handleNext}>
-        <span>{stepState} / 4</span>
-      </div>
+    <>
+      <div className="guide-background" onClick={handleNext}></div>
+      <span className="guid-step">{stepState} / 4</span>
 
-      <FunnelComponent>
-        <Step name={1}>
-          <TextBubble type="none">재료를 모을 수 있어요 </TextBubble>
-        </Step>
+      {stepState === 1 && (
+        <>
+          <div className="guide-focus">
+            <IngredientGroup />
+          </div>
+          <TextBubble type="top">재료를 모을 수 있어요 </TextBubble>
+        </>
+      )}
+
+      <MyHome />
+
+      {/* <FunnelComponent>
+        <Step name={1}></Step>
 
         <Step name={2}>
           <TextBubble type="bottom">
@@ -44,8 +63,8 @@ const Guide = () => {
             재료가 부족하다면 <br /> 친구에게 요청해보세요!
           </TextBubble>
         </Step>
-      </FunnelComponent>
-    </div>
+      </FunnelComponent> */}
+    </>
   );
 };
 
