@@ -1,0 +1,24 @@
+@use '../../global/align.scss';
+@use '../../global/color.scss' as *;
+
+%default-share-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  @extend %align-row-center;
+}
+
+.link-share-button {
+  @extend %default-share-button;
+  background-color: transparent;
+  border: 1px solid $color-gray-800;
+  box-sizing: border-box;
+}
+
+.kakao-share-button {
+  @extend %default-share-button;
+  background-color: $color-kakao;
+}
