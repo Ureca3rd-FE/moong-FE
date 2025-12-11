@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import IngredientGroup from '../components/home/IngredientGroup';
 import Button from '../components/common/Button';
 import ShareGroup from '../components/home/ShareGroup';
+import Letter from '../assets/images/letter.svg?react';
 
 const FUNNEL_STEPS = [1, 2, 3, 4];
 
@@ -52,6 +53,10 @@ const Guide = () => {
 
       {stepState === 3 && (
         <div className="step-3">
+          <div className="guide-focus">
+            <Letter height={24} width={24} />
+          </div>
+          <div className="guide-line" />
           <TextBubble type="none">
             만들어진 눈사람은 <br /> 여기서 확인할 수 있어요
           </TextBubble>
