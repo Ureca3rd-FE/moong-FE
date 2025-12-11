@@ -12,6 +12,7 @@ const Message = lazy(() => import('../pages/Message/Message'));
 const MessageDetail = lazy(() => import('../pages/Message/MessageDetail'));
 const CreateMessage = lazy(() => import('../pages/Message/CreateMessage'));
 const Onboard = lazy(() => import('../pages/Onboard'));
+const OnboardSuccess = lazy(() => import('../pages/OnboardSuccess'));
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,14 @@ const router = createBrowserRouter([
     element : (
       <Suspense fallback = {<Loading/>}>
         <Onboard/>
+      </Suspense>
+    )
+  },
+  {
+    path : 'onboardsuccess',
+    element : (
+      <Suspense fallback = {<OnboardSuccess/>}>
+        <OnboardSuccess/>
       </Suspense>
     )
   },
