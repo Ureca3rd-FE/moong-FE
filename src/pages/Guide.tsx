@@ -9,10 +9,7 @@ import Button from '../components/common/Button';
 const FUNNEL_STEPS = [1, 2, 3, 4];
 
 const Guide = () => {
-  const [FunnelComponent, setStepState, stepState] = useFunnel(
-    FUNNEL_STEPS,
-    FUNNEL_STEPS[0],
-  );
+  const [, setStepState, stepState] = useFunnel(FUNNEL_STEPS, FUNNEL_STEPS[0]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,12 +30,23 @@ const Guide = () => {
       <span className="guid-step">{stepState} / 4</span>
 
       {stepState === 1 && (
-        <>
+        <div className="step-1">
           <div className="guide-focus">
             <IngredientGroup />
           </div>
           <TextBubble type="top">재료를 모을 수 있어요 </TextBubble>
-        </>
+        </div>
+      )}
+
+      {stepState === 2 && (
+        <div className="step-2">
+          <div className="guide-focus">
+            <Button>눈사람 만들기</Button>
+          </div>
+          <TextBubble type="bottom">
+            재료를 모두 모으면 <br /> 눈사람을 만들 수 있어요!
+          </TextBubble>
+        </div>
       )}
 
       <MyHome />

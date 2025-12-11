@@ -35,7 +35,7 @@ const MyHome = () => {
       <IngredientGroup />
 
       <div className="my-home__actions">
-        <Button type="large">재료를 모두 모아주세요</Button>
+        <Button type="disabled">재료를 모두 모아주세요</Button>
         <p className="my-home__share-text">친구에게 공유하고 재료 받기</p>
         <div className="my-home__share-icons">
           <ShareButton type="link" />

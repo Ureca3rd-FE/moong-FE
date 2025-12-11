@@ -7,7 +7,6 @@
   position: fixed;
   left: 0;
   right: 0;
-  top: 560px;
   z-index: 50;
 }
 
@@ -41,4 +40,28 @@
   border-top: 9px solid transparent;
 
   border-bottom: 9px solid $color-main;
+}
+
+.step-1 {
+  .text-bubble-wrapper {
+    top: 560px;
+  }
+  .guide-focus {
+    top: 121px;
+    left: 22.2px;
+    right: 24.2px;
+  }
+}
+
+.step-2 {
+  .text-bubble-wrapper {
+    top: 540px;
+  }
+
+  .guide-focus {
+    top: 599px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+  }
 }
