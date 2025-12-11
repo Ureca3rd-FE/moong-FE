@@ -11,7 +11,10 @@ const Onboard = () => {
   const navigate = useNavigate();
 
   return (
-    <Button type = "large">로그인</Button>
+    <div>
+      <img src = {snowman_v} alt = "온보딩"/>
+      <Button type = "large" onClick={() => navigate('/Login')}>로그인</Button>
+    </div>
   )
 };
 
