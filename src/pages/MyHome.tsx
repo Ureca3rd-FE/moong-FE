@@ -20,7 +20,7 @@ const MyHome = () => {
         <div className="my-home__header-icon">
           <img src = {logo} alt ="로고"/>
         </div>
-        <div className="my-home__header-icon" onClick={() => navigate('/message')}>
+        <div className="my-home__header-icon" onClick={() => navigate('/Login')}>
           <img src = {letter} alt = "편지기록함"/>
         </div>
       </div>

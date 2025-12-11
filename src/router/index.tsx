@@ -11,6 +11,7 @@ const OthersHome = lazy(() => import('../pages/OthersHome'));
 const Message = lazy(() => import('../pages/Message/Message'));
 const MessageDetail = lazy(() => import('../pages/Message/MessageDetail'));
 const CreateMessage = lazy(() => import('../pages/Message/CreateMessage'));
+const Onboard = lazy(() => import('../pages/Onboard'));
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,14 @@ const router = createBrowserRouter([
         <Login />
       </Suspense>
     ),
+  },
+  {
+    path : 'onboard',
+    element : (
+      <Suspense fallback = {<Loading/>}>
+        <Onboard/>
+      </Suspense>
+    )
   },
   {
     path: 'signup',
