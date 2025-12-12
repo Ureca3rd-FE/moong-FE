@@ -1,0 +1,48 @@
+@use '../../global/color.scss'as *;
+@use '../../global/text-style.scss' as *;
+@use '../../global/align.scss' as *;
+
+.header{
+    @extend %align-space-between;
+    align-items: center;
+
+    position: sticky; 
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    height:70px;
+    padding-bottom: 23;
+    background-color: transparent;
+
+    // 뒤로가기, 닫기 영역
+    &__back, &__close{
+        @extend %align-row-center;
+        height: 100%;
+
+        // 아이콘 버튼
+        button{
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+
+            @extend %align-row-center;
+
+            img, svg{
+                width: 18px;
+                height: 18px;
+                display: block;
+            }
+        }
+    }
+
+    // 중앙 텍스트
+    &__center{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
+        font-size: 20px;
+        font-weight: 400;
+    }
+}

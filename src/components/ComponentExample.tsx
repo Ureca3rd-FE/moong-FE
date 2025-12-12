@@ -1,5 +1,6 @@
 import Button from './common/Button';
 import ShareButton from './home/ShareButton';
+import Header from './common/Header';
 
 const ComponentExample = () => {
   return (
@@ -12,6 +13,15 @@ const ComponentExample = () => {
 
       <ShareButton type="kakao" />
       <ShareButton type="link" />
+
+
+      {/* 헤더 컴포넌트 사용 예시 */}
+      <Header 
+        text='편지지 선택'
+        back={true} 
+        close={true}
+      />
+
     </>
   );
 };
