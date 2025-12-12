@@ -5,12 +5,14 @@ import Loading from '../components/common/Loading';
 import Guide from '../pages/Guide';
 
 const Login = lazy(() => import('../pages/Login'));
-const Signup = lazy(() => import('../pages/Signup'));
+const Signup = lazy(() => import('../pages/Singup'));
 const MyHome = lazy(() => import('../pages/MyHome'));
 const OthersHome = lazy(() => import('../pages/OthersHome'));
 const Message = lazy(() => import('../pages/Message/Message'));
 const MessageDetail = lazy(() => import('../pages/Message/MessageDetail'));
 const CreateMessage = lazy(() => import('../pages/Message/CreateMessage'));
+const Onboard = lazy(() => import('../pages/Onboard'));
+const OnboardSuccess = lazy(() => import('../pages/OnboardSuccess'));
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,22 @@ const router = createBrowserRouter([
         <Login />
       </Suspense>
     ),
+  },
+  {
+    path : 'onboard',
+    element : (
+      <Suspense fallback = {<Loading/>}>
+        <Onboard/>
+      </Suspense>
+    )
+  },
+  {
+    path : 'onboardsuccess',
+    element : (
+      <Suspense fallback = {<Loading/>}>
+        <OnboardSuccess/>
+      </Suspense>
+    )
   },
   {
     path: 'signup',

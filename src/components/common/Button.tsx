@@ -8,14 +8,18 @@ const typeToClassNameMap = {
 const Button = ({
   type = 'large',
   children,
+  onClick,
 }: {
   type?: 'small' | 'blue' | 'large' | 'disabled';
   children: React.ReactNode;
+  onClick? : () => void;
 }) => {
   const className = typeToClassNameMap[type] || 'button-large';
 
   return (
-    <button className={className} disabled={type === 'disabled'}>
+    <button className={className} 
+    disabled={type === 'disabled'}
+    onClick={onClick}>
       {children}
     </button>
   );

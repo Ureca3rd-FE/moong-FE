@@ -1,0 +1,40 @@
+@use '../../global/color.scss' as *;
+@use '../../global/text-style.scss' as *;
+
+.onboard-success {
+  min-height: 100vh;
+  background-color: $color-background;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 183px 24px 40px; //나중에 header오면 123px로 바꾸기
+  gap: 16px;
+  text-align: center;
+
+  &__image {
+    width: 166px;
+    height: 188px;
+    margin-bottom: 12px;
+  }
+
+  &__title {
+    @include text-style($text-dandan-subtitle);
+    font-weight: $font-weight-bold;
+    color: $color-black;
+  }
+
+  &__subtitle {
+    @include text-style($text-pretendard-16);
+    color: $color-black;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  &__button {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
