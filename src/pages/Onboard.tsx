@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { motion, useAnimationControls } from 'framer-motion';
 import Button from "../components/common/Button";
 import snowman_v from "../assets/images/snowman_face_v.svg";
 import branch from "../assets/images/branch.svg";
@@ -7,9 +8,12 @@ import rock from "../assets/images/rock.svg";
 import scarf from "../assets/images/scarf.svg";
 import snowball from "../assets/images/snowball.svg";
 import '../style/pages/Onboard/onboard.scss';
+import { useEffect } from "react";
 
 const Onboard = () => {
   const navigate = useNavigate();
+  const controls = useAnimationControls();
+
   const materials = [
     {src : snowball, alt : "눈"},
     {src : rock, alt : "돌"},
@@ -17,6 +21,22 @@ const Onboard = () => {
     {src : scarf, alt : "당근"},
     {src : carrot, alt : "목도리"},
   ]
+
+  // useEffect(() => {
+  //   const startAnimation = async() => {
+  //     while(true) {
+  //       await controls.start({
+  //         x : [0, -560],
+  //         transition : {
+  //           duration : 10,
+  //           ease : "linear"
+  //         }
+  //       });
+  //       controls.set({x : 0});
+  //     }
+  //   };
+  //   startAnimation();
+  // }, [controls])
 
   return (
     <div className="onboard">
@@ -26,8 +46,15 @@ const Onboard = () => {
         </div>
 
         <div className="onboard__materials-wrapper">
-          <div className="onboard__materials">
-            {/* 첫 번째 세트 */}
+        <motion.div 
+            className="onboard__materials"
+            animate={{ x: [0, -565] }}
+            transition={{
+              duration: 20,
+              ease: "linear",
+              repeat: Infinity,
+              repeatType: "loop"
+            }}>
             {materials.map((material, index) => (
               <img
                 key={`set1-${index}`}
@@ -36,7 +63,6 @@ const Onboard = () => {
                 className="onboard__material"
               />
             ))}
-            {/* 두 번째 세트 (무한 반복용) */}
             {materials.map((material, index) => (
               <img
                 key={`set2-${index}`}
@@ -45,7 +71,7 @@ const Onboard = () => {
                 className="onboard__material"
               />
             ))}
-          </div>
+          </motion.div>
         </div>
 
         <div className="onboard__button">
