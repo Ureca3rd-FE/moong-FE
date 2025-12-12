@@ -1,4 +1,6 @@
 @use '../global/align.scss' as *;
+@use '../global/text-style.scss' as *;
+@use '../global/color.scss' as *;
 
 .message-wrapper {
   @extend %align-row-center;
@@ -8,11 +10,47 @@
 .message-background {
   width: 330px;
   height: 494px;
-  background-image: url('/images/letter_red.svg');
   background-size: 100% 100%;
   border-radius: 25px;
+
+  @extend %align-row-center;
+
+  &.red {
+    background-image: url('/images/letter_red.svg');
+  }
+
+  &.silver {
+    background-image: url('/images/letter_silver.svg');
+  }
+
+  &.gold {
+    background-image: url('/images/letter_gold.svg');
+  }
+
+  &.navy {
+    background-image: url('/images/letter_navy.svg');
+  }
+
+  &.green {
+    background-image: url('/images/letter_green.svg');
+  }
+}
+
+.message-content-wrapper {
+  width: 75%;
+  height: 100%;
+  @extend %align-column-center;
+  justify-content: space-evenly;
+  color: $color-gray-800;
 }
 
 .message-content {
-  // width: fit-content;
+  @include text-style($text-omudaye-16);
+  line-height: 120%;
+}
+
+.message-to,
+.message-from {
+  @include text-style($text-omudaye-24);
+  font-size: 24px;
 }

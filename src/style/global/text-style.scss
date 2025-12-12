@@ -21,6 +21,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'OmuDaye';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-display: swap;
+}
+
 /*---------
 text style
 ---------*/
@@ -28,6 +36,7 @@ text style
 $font-family-pretendard: 'pretendard', sans-serif;
 $font-family-dandan: 'dandan', sans-serif;
 $font-family-default: $font-family-pretendard;
+$font-family-omudaye: 'OmuDaye', sans-serif;
 
 $font-weight-regular: 400;
 $font-weight-medium: 500;
@@ -104,6 +113,18 @@ $text-dandan-title2: (
 $text-dandan-subtitle: (
   font-family: $font-family-dandan,
   font-size: $font-size-24,
+  font-weight: $font-weight-regular,
+);
+
+$text-omudaye-16: (
+  font-family: $font-family-omudaye,
+  fon-size: $font-size-16,
+  font-weight: $font-weight-regular,
+);
+
+$text-omudaye-24: (
+  font-family: $font-family-omudaye,
+  fon-size: $font-size-24,
   font-weight: $font-weight-regular,
 );
 
