@@ -14,11 +14,14 @@ const ComponentExample = () => {
       <ShareButton type="kakao" />
       <ShareButton type="link" />
 
+
+      {/* 헤더 컴포넌트 사용 예시 */}
       <Header 
-        center='편지지 선택'
-        back={true}
+        text='편지지 선택'
+        back={true} 
         close={true}
       />
+
     </>
   );
 };
