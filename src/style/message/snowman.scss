@@ -1,0 +1,13 @@
+@use '../global/text-style.scss' as *;
+@use '../global/color.scss' as *;
+@use '../global/align.scss' as *;
+
+.snowman-wrapper {
+  width: fit-content;
+  @extend %align-column-center;
+}
+
+.snowman-name {
+  @include text-style($text-dandan-subtitle);
+  // -webkit-text-stroke: 0.7px $color-white;
+}

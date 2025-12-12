@@ -13,7 +13,7 @@ const Message = () => {
       {/* TODO: 헤더 추가 */}
       <Category tapState={tapState} setTapState={setTapState} />
       <div className={className}>
-        <Snowman />
+        <Snowman color="red" name="강현우" />
       </div>
     </>
   );
