@@ -6,7 +6,6 @@ interface TextFieldProps {
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  disabled?: boolean;
   error?: boolean;
   className?: string;
 }
@@ -17,7 +16,6 @@ const TextField = ({
   placeholder,
   value,
   onChange,
-  disabled = false,
   error = false,
   className = '',
 }: TextFieldProps) => {
@@ -31,7 +29,6 @@ const TextField = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      disabled={disabled}
       className={combinedClassName}
     />
   );

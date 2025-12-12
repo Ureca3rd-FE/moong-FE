@@ -22,22 +22,6 @@ const Onboard = () => {
     {src : carrot, alt : "목도리"},
   ]
 
-  // useEffect(() => {
-  //   const startAnimation = async() => {
-  //     while(true) {
-  //       await controls.start({
-  //         x : [0, -560],
-  //         transition : {
-  //           duration : 10,
-  //           ease : "linear"
-  //         }
-  //       });
-  //       controls.set({x : 0});
-  //     }
-  //   };
-  //   startAnimation();
-  // }, [controls])
-
   return (
     <div className="onboard">
       <div className="onboard__container">
