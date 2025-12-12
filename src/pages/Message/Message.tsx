@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Category from '../../components/message/Category';
-import { open, unopen } from '../../mock/messages';
+import { open } from '../../mock/messages';
 
 import Snowman from '../../components/message/Snowman';
 
-const THEME = ['red', 'green', 'yellow', 'silver', 'navy'];
+const THEME = ['red', 'green', 'gold', 'silver', 'navy'];
 
 const Message = () => {
   const [tapState, setTapState] = useState('OPEN');
