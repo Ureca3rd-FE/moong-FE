@@ -3,6 +3,7 @@ import Green from '../../assets/images/snowman_green.svg?react';
 import Gold from '../../assets/images/snowman_gold.svg?react';
 import Silver from '../../assets/images/snowman_silver.svg?react';
 import Navy from '../../assets/images/snowman_navy.svg?react';
+import { useNavigate } from 'react-router-dom';
 
 const COLOR_COMPONENTS: { [key: string]: React.ElementType } = {
   red: Red,
@@ -12,12 +13,26 @@ const COLOR_COMPONENTS: { [key: string]: React.ElementType } = {
   navy: Navy,
 };
 
-const Snowman = ({ color, name }: { color: string; name: string }) => {
+const Snowman = ({
+  messageId,
+  color,
+  name,
+}: {
+  messageId: string;
+  color: string;
+  name: string;
+}) => {
   const SelectedSnowman = COLOR_COMPONENTS[color];
   const className = 'snowman-name ' + color;
+  const navigate = useNavigate();
 
   return (
-    <div className="snowman-wrapper">
+    <div
+      className="snowman-wrapper"
+      onClick={() => {
+        navigate(`/message/${messageId}`);
+      }}
+    >
       {SelectedSnowman ? <SelectedSnowman /> : null}
       <div className={className}>{name}</div>
     </div>

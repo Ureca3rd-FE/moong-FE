@@ -25,6 +25,7 @@ const Message = () => {
             return (
               <Snowman
                 key={m.uuid}
+                messageId={m.uuid}
                 color={THEME[m.themeId]}
                 name={m.nickname}
               />

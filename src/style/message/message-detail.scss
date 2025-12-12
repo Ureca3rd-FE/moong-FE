@@ -1,0 +1,18 @@
+@use '../global/align.scss' as *;
+
+.message-wrapper {
+  @extend %align-row-center;
+  height: 100vh;
+}
+
+.message-background {
+  width: 330px;
+  height: 494px;
+  background-image: url('/images/letter_red.svg');
+  background-size: 100% 100%;
+  border-radius: 25px;
+}
+
+.message-content {
+  // width: fit-content;
+}
