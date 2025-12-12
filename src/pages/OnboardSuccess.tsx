@@ -20,7 +20,7 @@ const OnboardSuccess = () => {
         마음을 뭉쳐보세요!
       </div>
       <div className="onboard-success__button">
-        <Button type="large" onClick={() => navigate("/")}>
+        <Button type="large" onClick={() => navigate("/Login")}>
           로그인 하러 가기
         </Button>
       </div>
