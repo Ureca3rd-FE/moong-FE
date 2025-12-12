@@ -16,7 +16,7 @@ const MyHome = () => {
         </div>
         <div
           className="my-home__header-icon"
-          onClick={() => navigate('/message')}
+          onClick={() => navigate('/signup')}
         >
           <img src={letter} alt="편지기록함" />
         </div>

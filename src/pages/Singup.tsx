@@ -6,7 +6,7 @@ import eyeOpenImg from "../assets/images/eye_open.svg";
 import eyeCloseImg from "../assets/images/eye_close.svg";
 import '../style/pages/Login/login.scss';
 
-const Login = () => {
+const Signup = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -17,13 +17,16 @@ const Login = () => {
       <div className="login_container">
         <div className="login_field">
           <label className="login_label">닉네임</label>
+          <div className = "login_input-row">
           <TextField
             type="text"
-            size="large"
+            size="medium"
             placeholder="4자 이내로 입력"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+          <Button type="small">중복검사</Button>
+          </div>
         </div>
 
         <div className="login_field">
@@ -50,12 +53,12 @@ const Login = () => {
         </div>
 
         <div className="login_button">
-          <Button type="large" onClick={() => navigate('/')}>로그인</Button>
+          <Button type="large" onClick={() => navigate('/onboardsuccess')}>회원가입</Button>
         </div>
       </div>
     </div>
     )
   };
   
-  export default Login;
+  export default Signup;
   

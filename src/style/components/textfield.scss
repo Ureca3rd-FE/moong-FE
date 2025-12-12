@@ -1,0 +1,54 @@
+@use '../global/text-style' as *;
+@use '../global/color' as *;
+
+%textfield-sizing {
+  height: 45px;
+  border-radius: 15px;
+  border: 1px solid $color-gray-400;
+  outline: none;
+  padding: 0 15px;
+  @include text-style($text-pretendard-16);
+  color: $color-black;
+  background-color: $color-white;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+
+  &:focus {
+    border-color: $color-main;
+  }
+
+  &::placeholder {
+    color: $color-gray-400;
+  }
+}
+
+.textfield {
+  @extend %textfield-sizing;
+
+  &-error {
+    border-color: $color-negative;
+
+    &:focus {
+      border-color: $color-negative;
+    }
+  }
+}
+
+.textfield-medium {
+  @extend %textfield-sizing;
+  width: 215px;
+
+  &-error {
+    border-color: $color-negative;
+  }
+}
+
+.textfield-large {
+  @extend %textfield-sizing;
+  width: 320px;
+
+  &-error {
+    border-color: $color-negative;
+  }
+}
+

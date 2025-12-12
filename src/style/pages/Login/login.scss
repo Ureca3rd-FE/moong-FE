@@ -1,0 +1,87 @@
+@use '../../global//color.scss' as *;
+@use '../../global/text-style.scss' as *;
+
+.login {
+  min-height: 100vh;
+  background-color: $color-background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+
+  &_container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  &_field {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    &:first-child &_label {
+      margin-top: 60px;
+    }
+  }
+
+  &_label {
+    @include text-style($text-pretendard-14);
+    color: $color-black;
+    margin-bottom: 15px;
+  }
+
+  &_input-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .textfield-large {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+
+  &_password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .textfield-large {
+      padding-right: 45px;
+    }
+  }
+
+  &_toggle {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &_button {
+    display: flex;
+    justify-content: center;
+    margin-top: 240px;
+  }
+}
+
