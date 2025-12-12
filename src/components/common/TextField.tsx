@@ -1,3 +1,4 @@
+import type { ChangeEvent } from 'react';
 import '../../style/components/textfield.scss';
 
 interface TextFieldProps {
@@ -5,7 +6,7 @@ interface TextFieldProps {
   size?: 'medium' | 'large' ;
   placeholder?: string;
   value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   error?: boolean;
   className?: string;
 }

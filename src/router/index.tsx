@@ -43,7 +43,7 @@ const router = createBrowserRouter([
   {
     path : 'onboardsuccess',
     element : (
-      <Suspense fallback = {<OnboardSuccess/>}>
+      <Suspense fallback = {<Loading/>}>
         <OnboardSuccess/>
       </Suspense>
     )
