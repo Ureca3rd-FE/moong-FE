@@ -4,8 +4,6 @@ import axios, { AxiosHeaders, type InternalAxiosRequestConfig } from 'axios';
 // API URL
 const BASE_URL = import.meta.env.VITE_API_URL;
 
-let refreshTokenPromise: Promise<any> | null = null;
-
 // Axios 인스턴스 생성
 const api = axios.create({
   baseURL: BASE_URL,
@@ -16,16 +14,12 @@ const api = axios.create({
 api.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     const accessToken = localStorage.getItem('accessToken');
-    const refreshToken = localStorage.getItem('refreshToken');
 
     // 기존 headers를 기반으로 AxiosHeaders 객체 생성
     const newHeaders = new AxiosHeaders(config.headers || {});
 
     if (accessToken) {
       newHeaders.set('Authorization', `Bearer ${accessToken}`);
-    }
-    if (refreshToken) {
-      newHeaders.set('Authorization_refresh', `Bearer ${refreshToken}`);
     }
 
     // config 객체를 직접 변경하지 않고, 새 객체를 만들어 반환
@@ -40,25 +34,16 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
-    const originalRequest = error.config;
+    if (error.response?.status === 401) {
+      console.error(
+        '인증 실패: 401 Unauthorized. Access Token이 만료되었거나 유효하지 않습니다.',
+      );
 
-    if (error.response?.status === 401 && !originalRequest._retry) {
-      originalRequest._retry = true;
+      localStorage.removeItem('accessToken');
+      window.location.href = '/login';
 
-      try {
-        const { newAccessToken, newRefreshToken } = await refreshTokenPromise;
-        refreshTokenPromise = null; // 완료 후 초기화
-
-        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
-        originalRequest.headers.Authorization_refresh = `Bearer ${newRefreshToken}`;
-        return api(originalRequest);
-      } catch (err) {
-        refreshTokenPromise = null;
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('refreshToken');
-        window.location.href = '/';
-        return Promise.reject(err);
-      }
+      // 요청 실패 처리
+      return Promise.reject(error);
     }
 
     return Promise.reject(error);
