@@ -1,0 +1,48 @@
+@use '../global/align.scss' as *;
+@use '../global/text-style.scss' as *;
+@use '../global/color.scss' as *;
+
+.tap-wrapper {
+  @extend %align-row-center;
+}
+
+%default-category {
+  width: 50vw;
+  height: 46px;
+  color: $color-gray-600;
+
+  @extend %align-row-center;
+  @include text-style($text-pretendard-16-600);
+}
+
+.category-tap {
+  @extend %default-category;
+}
+
+.category-selected {
+  @extend %default-category;
+  color: $color-black;
+}
+
+%category-bar {
+  width: 50%;
+  @extend %align-row-center;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0);
+
+  .line {
+    width: 90px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: $color-gray-800;
+  }
+}
+
+.category-bar-left {
+  @extend %category-bar;
+}
+
+.category-bar-right {
+  @extend %category-bar;
+  transform: translateX(calc(100%));
+}

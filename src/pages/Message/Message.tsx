@@ -1,5 +1,11 @@
+import Category from '../../components/message/Category';
+
 const Messages = () => {
-  return <>메세지 목록</>;
+  return (
+    <>
+      <Category />
+    </>
+  );
 };
 
 export default Messages;
