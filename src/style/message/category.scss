@@ -2,6 +2,10 @@
 @use '../global/text-style.scss' as *;
 @use '../global/color.scss' as *;
 
+.category-wrapper {
+  background-color: $color-background;
+}
+
 .tap-wrapper {
   @extend %align-row-center;
 }

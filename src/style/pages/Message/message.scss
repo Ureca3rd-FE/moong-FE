@@ -1,0 +1,15 @@
+%message-list {
+  width: 100svw;
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+
+.message-list-open {
+  @extend %message-list;
+  background-image: url('/images/bg_day.svg');
+}
+
+.message-list-unopen {
+  @extend %message-list;
+  background-image: url('/images/bg_night.svg');
+}

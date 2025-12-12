@@ -1,8 +1,10 @@
-import { useState } from 'react';
-
-const Category = () => {
-  const [tapState, setTapState] = useState('OPEN');
-
+const Category = ({
+  tapState,
+  setTapState,
+}: {
+  tapState: string;
+  setTapState: (tapState: string) => void;
+}) => {
   const Tap = ({
     children,
     isSelected,
@@ -23,7 +25,7 @@ const Category = () => {
   const barClass = 'category-bar-' + (tapState === 'OPEN' ? 'left' : 'right');
 
   return (
-    <>
+    <div className="category-wrapper">
       <div className="tap-wrapper">
         <Tap
           isSelected={tapState === 'OPEN'}
@@ -41,7 +43,7 @@ const Category = () => {
       <div className={barClass}>
         <div className="line" />
       </div>
-    </>
+    </div>
   );
 };
 
