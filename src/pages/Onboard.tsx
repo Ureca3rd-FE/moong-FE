@@ -75,7 +75,7 @@ const Onboard = () => {
         </div>
 
         <div className="onboard__button">
-          <Button type="large" onClick={() => navigate('/Login')}>
+          <Button type="large" onClick={() => navigate('/login')}>
             로그인
           </Button>
         </div>
@@ -84,7 +84,7 @@ const Onboard = () => {
           <span className="onboard__text">아직 회원이 아니라면? </span>
           <span 
             className="onboard__link" 
-            onClick={() => navigate('/Signup')}
+            onClick={() => navigate('/signup')}
           >
             회원가입하기
           </span>
