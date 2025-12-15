@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import Category from '../../components/message/Category';
-import { open } from '../../mock/messages';
+import { open, unopen } from '../../mock/messages';
 import { THEME } from '../../constants/THEME';
 import Snowman from '../../components/message/Snowman';
 
 const Message = () => {
   const [tapState, setTapState] = useState('OPEN');
+  const messages = tapState === 'OPEN' ? open : unopen;
 
   const className =
     'message-list-bg-' + (tapState === 'OPEN' ? 'open' : 'unopen');
@@ -14,12 +15,10 @@ const Message = () => {
     <>
       {/* TODO: 헤더 추가 */}
       <Category tapState={tapState} setTapState={setTapState} />
-      {/* <div className={className}>
-        <Snowman color="red" name="강현우" />
-      </div> */}
+
       <div className={className}>
         <div className="message-list-wrapper">
-          {open.map((m) => {
+          {messages.map((m) => {
             return (
               <Snowman
                 key={m.uuid}

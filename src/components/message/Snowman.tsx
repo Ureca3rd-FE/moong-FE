@@ -26,6 +26,11 @@ const Snowman = ({
   const className = 'snowman-name ' + color;
   const navigate = useNavigate();
 
+  if (!SelectedSnowman) {
+    console.warn(`Invalid snowman color: ${color}. Using default.`);
+    return null;
+  }
+
   return (
     <div
       className="snowman-wrapper"
@@ -33,7 +38,7 @@ const Snowman = ({
         navigate(`/message/${messageId}`);
       }}
     >
-      {SelectedSnowman ? <SelectedSnowman /> : null}
+      <SelectedSnowman />
       <div className={className}>{name}</div>
     </div>
   );
