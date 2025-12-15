@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import Loading from '../components/common/Loading';
 import Guide from '../pages/Guide';
+import NicknameInput from '../pages/NicknameInput';
 
 const Login = lazy(() => import('../pages/Login'));
 const Signup = lazy(() => import('../pages/Singup'));
@@ -94,6 +95,15 @@ const router = createBrowserRouter([
     element: (
       <Suspense fallback={<Loading />}>
         <MessageDetail />
+      </Suspense>
+    ),
+  },
+  
+  {
+    path: 'nicknameinput',
+    element: (
+      <Suspense fallback={<Loading />}>
+        <NicknameInput />
       </Suspense>
     ),
   },
