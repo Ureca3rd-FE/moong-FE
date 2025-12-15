@@ -19,7 +19,7 @@ const OthersHome = ({ receivedName = '나원빈' }: OthersHomeProps) => {
 
       {/* 텍스트 */}
       <div className="others-home__content">
-        <h1 className="title">
+        <h1 className="text">
           <span className="highlight">{receivedName}</span> 님에게<br />
           눈사람을 선물해보세요!
         </h1>
