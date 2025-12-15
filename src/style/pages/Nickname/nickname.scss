@@ -53,8 +53,7 @@
 
     input {
       background-color: $color-white;
-      font-family: 'pretendard', sans-serif;
-      font-size: 16px;
+      @include text-style($text-pretendard-16);
       color: $color-black;
     }
   }
@@ -62,6 +61,6 @@
   &__button-container {
     display: flex;
     justify-content: center;
-    margin-top: 280px;
+    margin-top: 266px;
   }
 }
