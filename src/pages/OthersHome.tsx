@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import BgDay from '../assets/images/bg_day.svg?react';
-import '../style/othersHome.scss';
+import Button from '../components/common/Button';
 
 interface OthersHomeProps {
   receivedName?: string;
@@ -27,9 +27,7 @@ const OthersHome = ({ receivedName = '나원빈' }: OthersHomeProps) => {
 
       {/* 하단 버튼 */}
       <div className="others-home__button">
-        <button type="button" onClick={() => navigate('/NicknameInput')}>
-          선물하러 가기
-        </button>
+        <Button type="large" onClick={() => navigate('/nicknameinput')}>선물하러 가기</Button>
       </div>
     </div>
   );
