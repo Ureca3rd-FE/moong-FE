@@ -10,8 +10,17 @@
 
 @use './components/home/share-button.scss';
 
+@use './message/category.scss';
+@use './message/snowman.scss';
+@use './message/message-detail.scss';
+@use './pages/message/message.scss';
+
 html {
   background-color: #fffbf8;
+}
+
+body {
+  margin: 0;
 }
 
 .container {
