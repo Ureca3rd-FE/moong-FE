@@ -1,0 +1,26 @@
+%message-list-background {
+  width: 100vw;
+  height: calc(100vh - 50px);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+}
+
+.message-list-bg-open {
+  @extend %message-list-background;
+  background-image: url('/images/bg_day.svg');
+}
+
+.message-list-bg-unopen {
+  @extend %message-list-background;
+  background-image: url('/images/bg_night.svg');
+}
+
+.message-list-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+
+  overflow-x: auto;
+  height: 100%;
+}
