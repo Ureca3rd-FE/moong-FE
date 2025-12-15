@@ -14,7 +14,6 @@
   width: 50vw;
   height: 46px;
   color: $color-gray-600;
-
   @extend %align-row-center;
   @include text-style($text-pretendard-16-600);
 }
