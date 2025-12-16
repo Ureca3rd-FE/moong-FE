@@ -14,7 +14,7 @@ interface LoginResponse {
 }
 
 const loginApi = async (credentials: LoginRequest) => {
-    return api.post<LoginResponse>('/api/member/login', credentials);  // ✅ / 추가
+    return api.post<LoginResponse>('/api/member/login', credentials); 
 };
 
 /* const { login, loading, error } = useLogin();

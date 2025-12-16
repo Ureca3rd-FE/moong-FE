@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import useSignup from "../api/useSignUp";
 import TextField from "../components/common/TextField";
 import Button from "../components/common/Button";
 import eyeOpenImg from "../assets/images/eye_open.svg";
@@ -8,10 +9,45 @@ import '../style/pages/Login/login.scss';
 
 const Signup = () => {
     const navigate = useNavigate();
-    const [username, setUsername] = useState('');
+    const [nickname, setNickname] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
-  
+    const {signup, loading, error} = useSignup();
+
+    const handleSignup = async() => {
+      const trimmedNickname = nickname.trim();
+      const trimmedPassword = password.trim();
+
+      console.log('====회원가입시도======');
+      console.log('닉네입 :', trimmedNickname, '/길이 : ', trimmedNickname.length);
+      console.log('비밀번호 : ', trimmedPassword, '/길이 : ', trimmedPassword.length);
+      console.log('비밀번호타입 : ', typeof trimmedPassword);
+      console.log('정규식 테스트 :' , /^\d{4}$/.test(trimmedPassword));
+
+      if(!nickname.trim()){
+        alert('닉네임을 입력해주세요');
+        return;
+      }
+      if(nickname.length > 4) {
+        alert('닉네임은 4자 이내로 입력해주세요');
+        return
+      }
+      if(!trimmedPassword){
+        alert('비밀번호를 입력해주세요');
+        return
+      }
+      if(!/^\d{4}$/.test(password)){
+        alert(`비밀번호는 숫자 4자리여야 합니다.\n현재 입력값: "${trimmedPassword}" (${trimmedPassword.length}자)`);
+        return;
+      }
+      console.log('검증성공 API호출시작');
+      
+      const result = await signup({nickname, password});
+      if(result){
+        console.log('회원가입성공');
+        navigate('/onboardsuccess');
+      }
+    }  
     return (
     <div className="login">
       <div className="login_container">
@@ -22,8 +58,8 @@ const Signup = () => {
             type="text"
             size="medium"
             placeholder="4자 이내로 입력"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={nickname}
+            onChange={(e) => setNickname(e.target.value)}
           />
           <Button type="small">중복검사</Button>
           </div>
@@ -53,7 +89,7 @@ const Signup = () => {
         </div>
 
         <div className="login_button">
-          <Button type="large" onClick={() => navigate('/onboardsuccess')}>회원가입</Button>
+          <Button type="large" onClick={handleSignup}>회원가입</Button>
         </div>
       </div>
     </div>
