@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import useUserInfo from '../api/useUserInfo';
 import '../style/home.scss';
 import Button from '../components/common/Button';
 import logo from '../assets/images/logo.svg';
@@ -8,6 +9,8 @@ import ShareGroup from '../components/home/ShareGroup';
 
 const MyHome = () => {
   const navigate = useNavigate();
+  const {userInfo, loading, error} = useUserInfo();
+
   return (
     <div className="my-home">
       <div className="my-home__header">
@@ -26,10 +29,19 @@ const MyHome = () => {
         <div className="my-home__home-group">
           <div className="my-home__user-section">
             <h1 className="my-home__user-name">
-              박예진<span className="my-home__user-name-suffix">님</span>
+              {userInfo?.nickname}<span className="my-home__user-name-suffix">님</span>
             </h1>
           </div>
         </div>
+      </div>
+      
+      <div style={{ padding: '20px', background: '#f0f0f0', margin: '20px' }}>
+        <h3>🔍 재료 정보 확인 (임시)</h3>
+        <p>눈: {userInfo?.ingredient?.snow}개</p>
+        <p>돌: {userInfo?.ingredient?.rock}개</p>
+        <p>당근: {userInfo?.ingredient?.carrot}개</p>
+        <p>나뭇가지: {userInfo?.ingredient?.branch}개</p>
+        <p>목도리: {userInfo?.ingredient?.muffler}개</p>
       </div>
 
       <IngredientGroup />
