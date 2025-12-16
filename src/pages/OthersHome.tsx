@@ -10,6 +10,12 @@ interface OthersHomeProps {
 const OthersHome = ({ receivedName = '나원빈' }: OthersHomeProps) => {
   const navigate = useNavigate();
 
+  const handleStart = () => {
+    navigate('/nicknameinput', {
+      state: {receivedName}
+    })
+  }
+
   return (
     <div className="others-home">
       {/* 배경 */}
@@ -27,7 +33,7 @@ const OthersHome = ({ receivedName = '나원빈' }: OthersHomeProps) => {
 
       {/* 하단 버튼 */}
       <div className="others-home__button">
-        <Button type="large" onClick={() => navigate('/nicknameinput')}>선물하러 가기</Button>
+        <Button type="large" onClick={handleStart}>선물하러 가기</Button>
       </div>
     </div>
   );
