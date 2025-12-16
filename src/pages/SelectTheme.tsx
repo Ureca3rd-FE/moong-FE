@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../components/common/Header";
 import { useState } from "react";
 import WritingGold from '../assets/images/writing_gold.svg?react';
@@ -39,9 +39,22 @@ const THEMES: Theme[] = [
 
 const SelectTheme = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const { receivedName, senderName } = location.state || { receivedName: 'User', senderName: 'Me' };
     const [selectedId, setSelectedId] = useState<number>(1);
     const currentTheme = THEMES.find(t => t.id === selectedId) || THEMES[0];
     const CurrentImage = currentTheme.component;
+
+    const handleNext = () => {
+        navigate('/inputmessage', {
+            state: {
+                selectedId,
+                receivedName,
+                senderName
+            }
+        });
+    }
 
     return (
         <div className="selectTheme">
@@ -78,7 +91,7 @@ const SelectTheme = () => {
                     </div>
                 </div>
                 <div className="selectTheme__button">
-                    <Button type="large" onClick={() => navigate('/inputmessage')}>전송하기</Button>
+                    <Button type="large" onClick={handleNext}>전송하기</Button>
                 </div>
             </div>
         </div>
