@@ -109,7 +109,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: 'selectTheme',
+    path: 'selecttheme',
     element: (
       <Suspense fallback={<Loading />}>
         <SelectTheme />
