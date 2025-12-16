@@ -2,15 +2,35 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import TextField from "../components/common/TextField";
 import Button from "../components/common/Button";
+import useLogin from "../api/useLogin";
 import eyeOpenImg from "../assets/images/eye_open.svg";
 import eyeCloseImg from "../assets/images/eye_close.svg";
 import '../style/pages/Login/login.scss';
 
 const Login = () => {
     const navigate = useNavigate();
-    const [username, setUsername] = useState('');
+    const [nickname, setNickname] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const {login, loading, error} = useLogin();
+
+    const handleLogin = async () => {
+      if(!nickname.trim()){
+        alert('닉네임을 입력해주세요');
+        return;
+      }
+      if(!password.trim()){
+        alert('비밀번호를 입력해주세요');
+        return;
+      }
+
+      const result = await login({nickname,password});
+    if(result){
+      console.log('로그인성공', result);
+      navigate('/');
+    }
+  };
+    
   
     return (
     <div className="login">
@@ -21,8 +41,9 @@ const Login = () => {
             type="text"
             size="large"
             placeholder="4자 이내로 입력"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={nickname}
+            onChange={(e) => setNickname(e.target.value)}
+            //onKeyPress={(e) => e.Key === 'Enter' && handleLogin()}
           />
         </div>
 
@@ -50,7 +71,7 @@ const Login = () => {
         </div>
 
         <div className="login_button">
-          <Button type="large" onClick={() => navigate('/')}>로그인</Button>
+          <Button type="large" onClick={handleLogin}>로그인</Button>
         </div>
       </div>
     </div>
