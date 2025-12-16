@@ -23,7 +23,7 @@ export const useLogin = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    const login = async (credentials: LoginRequest): Promise<LoginResponse | null> => {  // ✅ { 추가!
+    const login = async (credentials: LoginRequest): Promise<LoginResponse | null> => {
         setLoading(true);
         setError(null);
 
