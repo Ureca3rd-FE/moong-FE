@@ -8,6 +8,8 @@ const Login = lazy(() => import('../pages/Login'));
 const Signup = lazy(() => import('../pages/Singup'));
 const MyHome = lazy(() => import('../pages/MyHome'));
 const OthersHome = lazy(() => import('../pages/OthersHome'));
+const NicknameInput = lazy(() => import('../pages/NicknameInput'));
+const SelectTheme = lazy(() => import('../pages/SelectTheme'));
 const Message = lazy(() => import('../pages/Message/Message'));
 const MessageDetail = lazy(() => import('../pages/Message/MessageDetail'));
 const CreateMessage = lazy(() => import('../pages/Message/CreateMessage'));
@@ -94,6 +96,23 @@ const router = createBrowserRouter([
     element: (
       <Suspense fallback={<Loading />}>
         <MessageDetail />
+      </Suspense>
+    ),
+  },
+  
+  {
+    path: 'nicknameinput',
+    element: (
+      <Suspense fallback={<Loading />}>
+        <NicknameInput />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'selecttheme',
+    element: (
+      <Suspense fallback={<Loading />}>
+        <SelectTheme />
       </Suspense>
     ),
   },
