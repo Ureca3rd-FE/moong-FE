@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Header } from '../components/common/Header';
 import TextField from "../components/common/TextField";
 import Button from "../components/common/Button";
 import useLogin from "../api/useLogin";
@@ -34,6 +35,10 @@ const Login = () => {
   
     return (
     <div className="login">
+      <Header
+        text = '로그인'
+        back = {true}
+      />
       <div className="login_container">
         <div className="login_field">
           <label className="login_label">닉네임</label>
