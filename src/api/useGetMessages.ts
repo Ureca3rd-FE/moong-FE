@@ -8,7 +8,7 @@ interface Message {
 }
 
 const getMessages = async (userId: number) => {
-  return api.get(`/api/messages`, {
+  return api.get(`/messages`, {
     params: { userId },
   });
 };
