@@ -14,15 +14,15 @@ const Snowman = () => {
             clearTimeout(timer);
         };
     },[navigate]);
-    
+
     return(
         <div className = "snowman">
             <img
-            className = "snowman_image"
+            className = "snowman__image"
             src = {SnowmanLetter}
             alt = "눈사람생성"
             />
-            <div className = "snowman_title">눈사람이 편지를 가져왔어요!</div>
+            <div className = "snowman__title">눈사람이 편지를 가져왔어요!</div>
         </div>
     );
 };
