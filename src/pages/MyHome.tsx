@@ -35,15 +35,6 @@ const MyHome = () => {
         </div>
       </div>
       
-      <div style={{ padding: '20px', background: '#f0f0f0', margin: '20px' }}>
-        <h3>🔍 재료 정보 확인 (임시)</h3>
-        <p>눈: {userInfo?.ingredient?.snow}개</p>
-        <p>돌: {userInfo?.ingredient?.rock}개</p>
-        <p>당근: {userInfo?.ingredient?.carrot}개</p>
-        <p>나뭇가지: {userInfo?.ingredient?.branch}개</p>
-        <p>목도리: {userInfo?.ingredient?.muffler}개</p>
-      </div>
-
       <IngredientGroup />
 
       <div className="my-home__actions">
