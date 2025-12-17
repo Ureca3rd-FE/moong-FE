@@ -1,3 +1,4 @@
+import Header from '../../components/common/Header';
 import { THEME } from '../../constants/THEME';
 
 const messageDetail = {
@@ -13,18 +14,20 @@ const MessageDetail = () => {
   const className = `message-background ${THEME[messageDetail.themeId]}`;
 
   return (
-    <div className="message-wrapper">
-      {/* TODO: 헤더 추가 */}
-      {messageDetail.isOpen && (
-        <div className={className}>
-          <div className="message-content-wrapper">
-            <div className="message-to">To. {name}</div>
-            <div className="message-content">{messageDetail.message}</div>
-            <div className="message-from">From. {messageDetail.nickname}</div>
+    <>
+      <Header back />
+      <div className="message-wrapper">
+        {messageDetail.isOpen && (
+          <div className={className}>
+            <div className="message-content-wrapper">
+              <div className="message-to">To. {name}</div>
+              <div className="message-content">{messageDetail.message}</div>
+              <div className="message-from">From. {messageDetail.nickname}</div>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 

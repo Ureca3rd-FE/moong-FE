@@ -3,6 +3,7 @@ import Category from '../../components/message/Category';
 import { THEME } from '../../constants/THEME';
 import Snowman from '../../components/message/Snowman';
 import useGetMessages from '../../api/useGetMessages';
+import Header from '../../components/common/Header';
 
 interface MessageItem {
   uuid: string;
@@ -13,13 +14,16 @@ interface MessageItem {
 const Message = () => {
   const [tapState, setTapState] = useState('OPEN');
 
-  const { messages } = useGetMessages(6);
+  const { messages, loading } = useGetMessages(6);
 
   const className =
     'message-list-bg-' + (tapState === 'OPEN' ? 'open' : 'unopen');
 
+  if (loading) return null;
+
   return (
     <>
+      <Header back text="메세지 목록" />
       <Category tapState={tapState} setTapState={setTapState} />
       <div className={className}>
         <div className="message-list-wrapper">
