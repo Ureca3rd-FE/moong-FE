@@ -1,6 +1,6 @@
-@use './global/color.scss' as *;
-@use './global/text-style.scss' as *;
-@use './global/align.scss' as *;
+@use '../../global/color.scss' as *;
+@use '../../global/text-style.scss' as *;
+@use '../../global/align.scss' as *;
 
 .inputmessage {
   display: flex;
