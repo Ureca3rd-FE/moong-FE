@@ -20,7 +20,7 @@ const MyHome = () => {
 
   const handleMake = () => {
     if(IngredientsAvailable){
-      navigate('/message')
+      navigate('/snowman')
     }
   }
 

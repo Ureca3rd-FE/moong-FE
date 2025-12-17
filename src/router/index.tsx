@@ -15,8 +15,10 @@ const MessageDetail = lazy(() => import('../pages/Message/MessageDetail'));
 const CreateMessage = lazy(() => import('../pages/Message/CreateMessage'));
 const Onboard = lazy(() => import('../pages/Onboard'));
 const OnboardSuccess = lazy(() => import('../pages/OnboardSuccess'));
-const InputMessage = lazy(() => import('../pages/InputMessage'))
-const MessageSuccess = lazy(() => import('../pages/MessageSuccess'))
+const InputMessage = lazy(() => import('../pages/InputMessage'));
+const MessageSuccess = lazy(() => import('../pages/MessageSuccess'));
+const Snowman = lazy(() => import('../pages/Snowman'));
+
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
         <Login />
       </Suspense>
     ),
+  },
+  {
+    path : 'snowman',
+    element : (
+      <Suspense fallback = {<Loading/>}>
+        <Snowman/>
+      </Suspense>
+    )
   },
   {
     path : 'onboard',
