@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import SnowmanLetter from "../assets/images/snowman_full_letter.svg";
 import "../style/pages/Snowman/Snowman.scss";
 
-const Snowman = () => {
+const SnowmanMessage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -26,4 +26,4 @@ const Snowman = () => {
         </div>
     );
 };
-export default Snowman;
+export default SnowmanMessage;
