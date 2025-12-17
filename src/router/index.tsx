@@ -15,8 +15,8 @@ const MessageDetail = lazy(() => import('../pages/Message/MessageDetail'));
 const CreateMessage = lazy(() => import('../pages/Message/CreateMessage'));
 const Onboard = lazy(() => import('../pages/Onboard'));
 const OnboardSuccess = lazy(() => import('../pages/OnboardSuccess'));
-const InputMessage = lazy(() => import('../pages/InputMessage'))
-const MessageSuccess = lazy(() => import('../pages/MessageSuccess'))
+const InputMessage = lazy(() => import('../pages/InputMessage'));
+const MessageSuccess = lazy(() => import('../pages/MessageSuccess'));
 
 const router = createBrowserRouter([
   {
@@ -37,20 +37,20 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path : 'onboard',
-    element : (
-      <Suspense fallback = {<Loading/>}>
-        <Onboard/>
+    path: 'onboard',
+    element: (
+      <Suspense fallback={<Loading />}>
+        <Onboard />
       </Suspense>
-    )
+    ),
   },
   {
-    path : 'onboardsuccess',
-    element : (
-      <Suspense fallback = {<Loading/>}>
-        <OnboardSuccess/>
+    path: 'onboardsuccess',
+    element: (
+      <Suspense fallback={<Loading />}>
+        <OnboardSuccess />
       </Suspense>
-    )
+    ),
   },
   {
     path: 'signup',
@@ -94,14 +94,14 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: 'message/:id',
+    path: 'message/:messageId',
     element: (
       <Suspense fallback={<Loading />}>
         <MessageDetail />
       </Suspense>
     ),
   },
-  
+
   {
     path: 'nicknameinput',
     element: (
