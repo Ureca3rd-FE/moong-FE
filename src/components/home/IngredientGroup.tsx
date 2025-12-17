@@ -17,30 +17,39 @@ const IngredientGroup = () => {
   const ingredients = [
     {
       name: '나뭇가지',
-      image: branchBImg,
+      imageActive : branchImg,
+      imageInActive: branchBImg,
       count: userInfo?.ingredient?.branch,
     },
     {
       name: '당근',
-      image: carrotBImg,
+      imageActive : carrotImg,
+      imageInActive: carrotBImg,
       count: userInfo?.ingredient?.carrot,
     },
     {
       name: '돌',
-      image: rockBImg,
+      imageActive : rockImg,
+      imageInActive: rockBImg,
       count: userInfo?.ingredient?.rock,
     },
     {
       name: '눈뭉치',
-      image: snowballBImg,
+      imageActive : snowballImg,
+      imageInActive : snowballBImg,
       count: userInfo?.ingredient?.snow,
     },
     {
       name: '목도리',
-      image: scarfBImg,
+      imageActive : scarfImg,
+      imageInActive: scarfBImg,
       count: userInfo?.ingredient?.muffler,
     },
   ];
+
+  const getIngredientImage = (item : typeof ingredients[0]) => {
+    return item.count >= 1 ? item.imageActive : item.imageInActive;
+  }
 
   return (
     <>
@@ -49,7 +58,8 @@ const IngredientGroup = () => {
         {ingredients.map((item) => (
           <div key={item.name} className="my-home__ingredient-item">
             <div className="my-home__ingredient-image-wrapper">
-              <img src={item.image} alt={item.name} />
+              <img src={getIngredientImage(item)} 
+              alt={item.name} />
               <span className="my-home__ingredient-badge">{item.count}</span>
             </div>
             <span className="my-home__ingredient-name">{item.name}</span>
