@@ -25,7 +25,7 @@ const MessageSuccess = () => {
         </Button>
       </div>
         <div className="onboard__signup">
-          <span className="onboard__text">아직 회원이라면? </span>
+          <span className="onboard__text">이미 가입된 회원이라면? </span>
           <span 
             className="onboard__link" 
             onClick={() => navigate('/login')}
