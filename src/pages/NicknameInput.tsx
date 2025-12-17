@@ -13,6 +13,7 @@ const NicknameInput = () => {
 
   const [nickname, setNickname] = useState('');
   const receivedName = location.state?.receivedName || 'Unknown';
+  const isButtonDisabled = nickname.trim().length === 0;
 
   const handleNext = () => {
     navigate('/selectTheme', {
@@ -49,7 +50,7 @@ const NicknameInput = () => {
         </div>
 
         <div className="nickname-input__button-container">
-          <Button type="large" onClick={handleNext}>버튼</Button>
+          <Button type={isButtonDisabled ? 'disabled' : 'large'} onClick={handleNext}>전송하기</Button>
         </div>
 
       </div>
