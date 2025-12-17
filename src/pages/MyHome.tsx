@@ -10,6 +10,19 @@ import ShareGroup from '../components/home/ShareGroup';
 const MyHome = () => {
   const navigate = useNavigate();
   const {userInfo, loading, error} = useUserInfo();
+  
+  const IngredientsAvailable = 
+    (userInfo?.ingredient?.branch ?? 0) >= 1 &&
+    (userInfo?.ingredient?.carrot ?? 0) >= 1 &&
+    (userInfo?.ingredient?.rock ?? 0) >= 1 &&
+    (userInfo?.ingredient?.snow ?? 0) >= 1 &&
+    (userInfo?.ingredient?.muffler ?? 0) >= 1;
+
+  const handleMake = () => {
+    if(IngredientsAvailable){
+      navigate('/message')
+    }
+  }
 
   return (
     <div className="my-home">
@@ -38,7 +51,8 @@ const MyHome = () => {
       <IngredientGroup />
 
       <div className="my-home__actions">
-        <Button type="disabled">재료를 모두 모아주세요</Button>
+        <Button type = {IngredientsAvailable ? "large" : "disabled"} 
+        onClick={handleMake}> {IngredientsAvailable ? "눈사람 만들기" : "재료를 모두 모아주세요"}</Button>
         <ShareGroup />
       </div>
     </div>
