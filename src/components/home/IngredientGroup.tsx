@@ -1,8 +1,13 @@
 import branchBImg from '../../assets/images/branch_B.svg';
+import branchImg from '../../assets/images/branch.svg';
 import carrotBImg from '../../assets/images/carrot_B.svg';
+import carrotImg from '../../assets/images/carrot.svg';
 import rockBImg from '../../assets/images/rock_B.svg';
+import rockImg from '../../assets/images/rock.svg';
 import scarfBImg from '../../assets/images/scarf_B.svg';
+import scarfImg from '../../assets/images/scarf.svg';
 import snowballBImg from '../../assets/images/snowball_B.svg';
+import snowballImg from'../../assets/images/snowball.svg';
 import HomeGroup from '../../assets/images/Home_Group.svg?react';
 
 const IngredientGroup = () => {
