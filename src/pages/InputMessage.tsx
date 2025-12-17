@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Header } from '../components/common/Header';
 import Button from '../components/common/Button';
 
-import '../style/inputMessage.scss';
+import '../style/pages/Message/inputmessage.scss';
 
 import WritingRed from '../assets/images/writing_red.svg?react';
 import WritingGold from '../assets/images/writing_gold.svg?react';
@@ -32,6 +32,7 @@ const InputMessage = () => {
 
     const state = location.state || {};
     const { receivedName, senderName, selectedId } = state;
+    const isButtonDisabled = message.trim().length === 0;
 
     useEffect(() => {
         if (!receivedName || !senderName || !selectedId) {
@@ -110,7 +111,7 @@ const InputMessage = () => {
                                     spellCheck={false}
                                     maxLength={500}
                                     />
-                                <div className="message-count"> ㄴ
+                                <div className="message-count"> 
                                     {message.length}/500
                                 </div>
                             </div>
@@ -123,7 +124,7 @@ const InputMessage = () => {
             </div>
         </div>
         <div className="inputmessage__button">
-        <Button type='large' onClick={handleNext}>전송하기</Button>
+        <Button type={isButtonDisabled || loading ? 'disabled' : 'large'} onClick={handleNext}>전송하기</Button>
         </div>
     </div>
     );
