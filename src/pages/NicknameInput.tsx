@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Header } from '../components/common/Header';
 
@@ -9,8 +9,19 @@ import Button from '../components/common/Button';
 
 const NicknameInput = () => {
   const navigate = useNavigate();
-  const [nickname, setNickname] = useState('');
+  const location = useLocation();
 
+  const [nickname, setNickname] = useState('');
+  const receivedName = location.state?.receivedName || 'Unknown';
+
+  const handleNext = () => {
+    navigate('/selectTheme', {
+      state: {
+        receivedName: receivedName,
+        senderName: nickname
+      }
+    });
+  }
   return (
     <div className="nickname-input">
       <Header 
@@ -26,7 +37,6 @@ const NicknameInput = () => {
             </h2>
           <img src={snowmanImg} alt="눈사람" className="snowman" />
         </div>
-
         <div className="nickname-input__input-container">
 
             <TextField
@@ -39,7 +49,7 @@ const NicknameInput = () => {
         </div>
 
         <div className="nickname-input__button-container">
-          <Button type="large" onClick={() => navigate('/selectTheme')}>버튼</Button>
+          <Button type="large" onClick={handleNext}>버튼</Button>
         </div>
 
       </div>
