@@ -9,32 +9,52 @@ import scarfImg from '../../assets/images/scarf.svg';
 import snowballBImg from '../../assets/images/snowball_B.svg';
 import snowballImg from'../../assets/images/snowball.svg';
 import HomeGroup from '../../assets/images/Home_Group.svg?react';
+import useUserInfo from '../../api/useUserInfo';
 
 const IngredientGroup = () => {
+  const {userInfo, loading, error}= useUserInfo();
+
+  const ingredients = [
+    {
+      name: '나뭇가지',
+      image: branchBImg,
+      count: userInfo?.ingredient?.branch,
+    },
+    {
+      name: '당근',
+      image: carrotBImg,
+      count: userInfo?.ingredient?.carrot,
+    },
+    {
+      name: '돌',
+      image: rockBImg,
+      count: userInfo?.ingredient?.rock,
+    },
+    {
+      name: '눈뭉치',
+      image: snowballBImg,
+      count: userInfo?.ingredient?.snow,
+    },
+    {
+      name: '목도리',
+      image: scarfBImg,
+      count: userInfo?.ingredient?.muffler,
+    },
+  ];
+
   return (
     <>
       <HomeGroup className="my-home__home-group-svg" />
       <div className="my-home__ingredients">
-        <div className="my-home__ingredient-item">
-          <img src={branchBImg} alt="나뭇가지" />
-          <span className="my-home__ingredient-name">나뭇가지</span>
-        </div>
-        <div className="my-home__ingredient-item">
-          <img src={carrotBImg} alt="당근" />
-          <span className="my-home__ingredient-name">당근</span>
-        </div>
-        <div className="my-home__ingredient-item">
-          <img src={rockBImg} alt="돌" />
-          <span className="my-home__ingredient-name">돌</span>
-        </div>
-        <div className="my-home__ingredient-item">
-          <img src={snowballBImg} alt="눈뭉치" />
-          <span className="my-home__ingredient-name">눈뭉치</span>
-        </div>
-        <div className="my-home__ingredient-item">
-          <img src={scarfBImg} alt="목도리" />
-          <span className="my-home__ingredient-name">목도리</span>
-        </div>
+        {ingredients.map((item) => (
+          <div key={item.name} className="my-home__ingredient-item">
+            <div className="my-home__ingredient-image-wrapper">
+              <img src={item.image} alt={item.name} />
+              <span className="my-home__ingredient-badge">{item.count}</span>
+            </div>
+            <span className="my-home__ingredient-name">{item.name}</span>
+          </div>
+        ))}
       </div>
     </>
   );
