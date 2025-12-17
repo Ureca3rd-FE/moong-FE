@@ -38,9 +38,9 @@
 
 .message-content-wrapper {
   width: 75%;
-  height: 100%;
+  height: 404px;
   @extend %align-column-center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   color: $color-gray-800;
 }
 
