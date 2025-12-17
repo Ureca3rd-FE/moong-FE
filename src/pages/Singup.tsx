@@ -6,6 +6,7 @@ import Button from "../components/common/Button";
 import eyeOpenImg from "../assets/images/eye_open.svg";
 import eyeCloseImg from "../assets/images/eye_close.svg";
 import '../style/pages/Login/login.scss';
+import Header from "../components/common/Header";
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -50,6 +51,10 @@ const Signup = () => {
     }  
     return (
     <div className="login">
+      <Header
+        text = '회원가입'
+        back = {true}
+      />
       <div className="login_container">
         <div className="login_field">
           <label className="login_label">닉네임</label>
