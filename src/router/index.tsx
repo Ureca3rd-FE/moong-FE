@@ -52,15 +52,15 @@ const router = createBrowserRouter([
       <Suspense fallback = {<Loading/>}>
         <Onboard/>
       </Suspense>
-    )
+    ),
   },
   {
-    path : 'onboardsuccess',
-    element : (
-      <Suspense fallback = {<Loading/>}>
-        <OnboardSuccess/>
+    path: 'onboardsuccess',
+    element: (
+      <Suspense fallback={<Loading />}>
+        <OnboardSuccess />
       </Suspense>
-    )
+    ),
   },
   {
     path: 'signup',
@@ -104,14 +104,14 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: 'message/:id',
+    path: 'message/:messageId',
     element: (
       <Suspense fallback={<Loading />}>
         <MessageDetail />
       </Suspense>
     ),
   },
-  
+
   {
     path: 'nicknameinput',
     element: (
