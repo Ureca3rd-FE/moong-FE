@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 import api from "../hooks/api";
 
 interface UserInfo {
-    nickname : string,
+    nickname : string;
     ingredient : {
-        snow : number,
-        rock : number,
-        carrot : number,
-        branch : number,
+        snow : number;
+        rock : number;
+        carrot : number;
+        branch : number;
         muffler : number
     };
 }
 
 const getUserInfo = async() => {
-    return api.get<UserInfo>('/api/member/homeinfo');
+    return api.get<UserInfo>('/member/homeinfo');
 };
 
 export const useUserInfo =() => {

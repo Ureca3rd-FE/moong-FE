@@ -26,11 +26,11 @@ const Login = () => {
       }
 
       const result = await login({nickname,password});
-    if(result){
-      console.log('로그인성공', result);
-      navigate('/');
-    }
-  };
+      if(result){
+        console.log('로그인성공', result);
+        navigate('/');
+      }
+    };
     
   
     return (

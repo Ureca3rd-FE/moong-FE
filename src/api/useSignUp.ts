@@ -17,7 +17,7 @@ const signupApi = async (credentials: SignupRequest) => {
     console.log('닉네임:', credentials.nickname, '/ 길이:', credentials.nickname.length);
     console.log('비밀번호:', credentials.password, '/ 길이:', credentials.password.length);
     console.log('비밀번호 타입:', typeof credentials.password);
-    return api.post<SignupResponse>('/api/member/signup', credentials);
+    return api.post<SignupResponse>('/member/signup', credentials);
 };
 
 /* const { signup, loading, error } = useSignup();
