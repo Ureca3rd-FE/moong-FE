@@ -32,8 +32,8 @@ export const useLogin = () => {
 
             localStorage.setItem('accessToken', response.data.accessToken);
             localStorage.setItem('refreshToken', response.data.refreshToken);
-            localStorage.setItem('accessTokenExpiresAt', response.data.accessTokenExpiredAt);
-            localStorage.setItem('refreshTokenExpiresAt', response.data.refreshTokenExpiredAt);
+            localStorage.setItem('accessTokenExpiredAt', response.data.accessTokenExpiredAt);
+            localStorage.setItem('refreshTokenExpiredAt', response.data.refreshTokenExpiredAt);
             
             return response.data;
         } catch (err: any) {
