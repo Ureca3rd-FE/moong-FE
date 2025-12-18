@@ -63,6 +63,7 @@ const MyHome = () => {
 
       <div className="my-home__content">
         <div className="my-home__home-group">
+          <IngredientGroup />
           <div className="my-home__user-section">
             <h1 className="my-home__user-name">
               {userInfo?.nickname}<span className="my-home__user-name-suffix">님</span>
@@ -71,7 +72,7 @@ const MyHome = () => {
         </div>
       </div>
       
-      <IngredientGroup />
+      
 
       <div className="my-home__actions">
         <Button type = {IngredientsAvailable ? "large" : "disabled"} 
