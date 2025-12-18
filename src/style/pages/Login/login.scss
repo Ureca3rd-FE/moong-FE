@@ -1,20 +1,24 @@
-@use '../../global//color.scss' as *;
+@use '../../global/color.scss' as *;
 @use '../../global/text-style.scss' as *;
 
 .login {
   min-height: 100vh;
   background-color: $color-background;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 28px;
+  flex-direction: column;
+  overflow-x: hidden;
 
   &_container {
     width: 100%;
     max-width: 400px;
+    margin: 0 auto;
+    padding-top: 60px;
+    padding-left: 28px;
+    padding-right: 28px;
     display: flex;
     flex-direction: column;
     gap: 60px;
+    box-sizing: border-box;
   }
 
   &_field {
@@ -45,18 +49,23 @@
   }
 
   &_password-wrapper {
-    position: relative;
+    position: relative; 
     display: flex;
     align-items: center;
+    width: 100%;
 
     .textfield-large {
+      width: 100%;
       padding-right: 45px;
+      box-sizing: border-box;
     }
   }
 
   &_toggle {
     position: absolute;
     right: 15px;
+    top: 50%; 
+    transform: translateY(-50%);
     background: none;
     border: none;
     cursor: pointer;
@@ -67,6 +76,7 @@
     width: 24px;
     height: 24px;
     transition: opacity 0.2s;
+    z-index: 10;
 
     &:hover {
       opacity: 0.7;
@@ -82,6 +92,8 @@
     display: flex;
     justify-content: center;
     margin-top: 240px;
+    padding-left: 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
-

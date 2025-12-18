@@ -13,7 +13,7 @@ import WritingGreen from '../assets/images/writing_green.svg?react';
 import WritingSilver from '../assets/images/writing_silver.svg?react';
 import WritingNavy from '../assets/images/writing_navy.svg?react';
 import TextField from '../components/common/TextField';
-import { usePostMessage } from '../hooks/usePostMessage';
+import { usePostMessage } from '../api/usePostMessage';
 
 const THEMES = [
     { id: 1, component: WritingRed },

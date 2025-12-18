@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Header} from "../components/common/Header";
 import Button from "../components/common/Button";
 import snowmanGood from "../assets/images/snowman_face_good.svg";
 import "../style/pages/OnboardSuccess/onboardSuccess.scss";
@@ -8,6 +9,9 @@ const OnboardSuccess = () => {
 
   return (
     <div className="onboard-success">
+      <Header
+        close = {true}
+      />
       <img
         className="onboard-success__image"
         src={snowmanGood}
