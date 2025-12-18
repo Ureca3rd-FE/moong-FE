@@ -13,7 +13,7 @@ interface UserInfo {
 }
 
 const getUserInfo = async() => {
-    return api.get<UserInfo>('/api/member/homeinfo');
+    return api.get<UserInfo>('/member/homeinfo');
 };
 
 export const useUserInfo =() => {

@@ -21,20 +21,27 @@ const MyHome = () => {
     (userInfo?.ingredient?.muffler ?? 0) >= 1;
 
   const handleMake = async () => {
+    console.log('🔍 userId:', localStorage.getItem('userId'));
+    console.log('🔍 userId 타입:', typeof localStorage.getItem('userId'));
+
     if(!IngredientsAvailable){
       alert('재료를 모두 모아주세요');
       return;
     }
     const userId = localStorage.getItem('userId');
+    console.log('🔍 가져온 userId:', userId);
+    console.log('🔍 userId === null:', userId === null);
+    console.log('🔍 !userId:', !userId);
     if(!userId){
+      console.log('userId가 없어서 여기로옴');
       alert('로그인정보를 찾을 수 없습니다!');
       navigate('/login');
       return;
     }
-
+    console.log('userId가 있어서 여기로와서 API 호출 시작');
     const success = await makesnowman(Number(userId));
     if(success){
-      navigate('/snowmanmessage');
+      navigate('/snowman');
     }else{
       alert(snowmanerror || '눈사람 생성에 실패했습니다');
     }

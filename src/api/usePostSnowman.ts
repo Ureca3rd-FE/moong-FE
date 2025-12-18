@@ -7,7 +7,7 @@ interface SnowmanResponse {
 }
 
 const postSnowmanApi = async (userId: number): Promise<SnowmanResponse> => {
-    const response = await api.post<SnowmanResponse>('/api/snowman', null, {
+    const response = await api.post<SnowmanResponse>('/snowman', null, {
         params: { userId }
     });
     return response.data;

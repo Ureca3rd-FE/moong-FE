@@ -15,7 +15,7 @@ interface LoginResponse {
 }
 
 const loginApi = async (credentials: LoginRequest) => {
-    return api.post<LoginResponse>('/api/member/login', credentials); 
+    return api.post<LoginResponse>('/member/login', credentials); 
 };
 
 /* const { login, loading, error } = useLogin();
@@ -35,7 +35,7 @@ export const useLogin = () => {
             localStorage.setItem('refreshToken', response.data.refreshToken);
             localStorage.setItem('accessTokenExpiredAt', response.data.accessTokenExpiredAt);
             localStorage.setItem('refreshTokenExpiredAt', response.data.refreshTokenExpiredAt);
-            localStorage.setItem('userId :', String(response.data.userId));
+            localStorage.setItem('userId', String(response.data.userId));
             
             return response.data;
         } catch (err: any) {
