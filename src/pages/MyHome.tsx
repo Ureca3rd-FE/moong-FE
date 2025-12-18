@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import useUserInfo from '../api/useUserInfo';
+import usePostSnowman from '../api/usePostSnowman';
 import '../style/home.scss';
 import Button from '../components/common/Button';
 import logo from '../assets/images/logo.svg';
@@ -9,7 +10,8 @@ import ShareGroup from '../components/home/ShareGroup';
 
 const MyHome = () => {
   const navigate = useNavigate();
-  const {userInfo, loading, error} = useUserInfo();
+  const {userInfo, loading : userloading, error : usererror} = useUserInfo();
+  const {makesnowman, loading :snowmanloading, error :snowmanerror} = usePostSnowman();
   
   const IngredientsAvailable = 
     (userInfo?.ingredient?.branch ?? 0) >= 1 &&
@@ -18,11 +20,25 @@ const MyHome = () => {
     (userInfo?.ingredient?.snow ?? 0) >= 1 &&
     (userInfo?.ingredient?.muffler ?? 0) >= 1;
 
-  const handleMake = () => {
-    if(IngredientsAvailable){
-      navigate('/snowman')
+  const handleMake = async () => {
+    if(!IngredientsAvailable){
+      alert('재료를 모두 모아주세요');
+      return;
     }
-  }
+    const userId = localStorage.getItem('userId');
+    if(!userId){
+      alert('로그인정보를 찾을 수 없습니다!');
+      navigate('/login');
+      return;
+    }
+
+    const success = await makesnowman(Number(userId));
+    if(success){
+      navigate('/snowmanmessage');
+    }else{
+      alert(snowmanerror || '눈사람 생성에 실패했습니다');
+    }
+  };
 
   return (
     <div className="my-home">
