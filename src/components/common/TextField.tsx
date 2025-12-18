@@ -1,4 +1,4 @@
-import type { ChangeEvent } from 'react';
+import type { ChangeEvent, KeyboardEvent } from 'react';
 import '../../style/components/textfield.scss';
 
 interface TextFieldProps {
@@ -7,6 +7,7 @@ interface TextFieldProps {
   placeholder?: string;
   value?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown?: (e : KeyboardEvent<HTMLInputElement>) => void;
   error?: boolean;
   className?: string;
 }
@@ -17,6 +18,7 @@ const TextField = ({
   placeholder,
   value,
   onChange,
+  onKeyDown,
   error = false,
   className = '',
 }: TextFieldProps) => {
@@ -30,6 +32,7 @@ const TextField = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      onKeyDown={onKeyDown}
       className={combinedClassName}
     />
   );
