@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import SnowmanLetter from "../assets/images/snowman_full_letter.svg";
+import SnowmanLetter from "../assets/images/snowman_full_letter.svg?react";
 import "../style/pages/Snowman/Snowman.scss";
 
 const SnowmanMessage = () => {
@@ -17,10 +17,8 @@ const SnowmanMessage = () => {
 
     return(
         <div className = "snowman">
-            <img
+            <SnowmanLetter
             className = "snowman__image"
-            src = {SnowmanLetter}
-            alt = "눈사람생성"
             />
             <div className = "snowman__title">눈사람이 편지를 가져왔어요!</div>
         </div>
