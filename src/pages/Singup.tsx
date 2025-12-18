@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import useSignup from "../api/useSignUp";
+import { useSignup } from "../api/useSignUp";
 import TextField from "../components/common/TextField";
 import Button from "../components/common/Button";
 import eyeOpenImg from "../assets/images/eye_open.svg";
