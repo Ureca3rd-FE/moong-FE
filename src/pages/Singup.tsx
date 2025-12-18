@@ -6,7 +6,7 @@ import Button from "../components/common/Button";
 import eyeOpenImg from "../assets/images/eye_open.svg";
 import eyeCloseImg from "../assets/images/eye_close.svg";
 import '../style/pages/Login/login.scss';
-import Header from "../components/common/Header";
+import { Header } from "../components/common/Header";
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -25,11 +25,11 @@ const Signup = () => {
       console.log('비밀번호타입 : ', typeof trimmedPassword);
       console.log('정규식 테스트 :' , /^\d{4}$/.test(trimmedPassword));
 
-      if(!nickname.trim()){
+      if(!trimmedNickname){
         alert('닉네임을 입력해주세요');
         return;
       }
-      if(nickname.length > 4) {
+      if(trimmedNickname.length > 4) {
         alert('닉네임은 4자 이내로 입력해주세요');
         return
       }
@@ -37,13 +37,13 @@ const Signup = () => {
         alert('비밀번호를 입력해주세요');
         return
       }
-      if(!/^\d{4}$/.test(password)){
+      if(!/^\d{4}$/.test(trimmedPassword)){
         alert(`비밀번호는 숫자 4자리여야 합니다.\n현재 입력값: "${trimmedPassword}" (${trimmedPassword.length}자)`);
         return;
       }
       console.log('검증성공 API호출시작');
       
-      const result = await signup({nickname, password});
+      const result = await signup({nickname : trimmedNickname, password : trimmedPassword});
       if(result){
         console.log('회원가입성공');
         navigate('/onboardsuccess');
