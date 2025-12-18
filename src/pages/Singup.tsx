@@ -79,6 +79,8 @@ const Signup = () => {
               placeholder="4자리 숫자로 입력"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleSignup()}
+
             />
             <button
               className="login_toggle"

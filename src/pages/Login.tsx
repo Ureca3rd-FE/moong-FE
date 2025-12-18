@@ -37,7 +37,7 @@ const Login = () => {
     <div className="login">
       <Header
         text = '로그인'
-        back = {true}
+        back
       />
       <div className="login_container">
         <div className="login_field">
@@ -48,7 +48,6 @@ const Login = () => {
             placeholder="4자 이내로 입력"
             value={nickname}
             onChange={(e) => setNickname(e.target.value)}
-            //onKeyPress={(e) => e.Key === 'Enter' && handleLogin()}
           />
         </div>
 
@@ -61,6 +60,7 @@ const Login = () => {
               placeholder="4자리 숫자로 입력"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
             />
             <button
               className="login_toggle"
