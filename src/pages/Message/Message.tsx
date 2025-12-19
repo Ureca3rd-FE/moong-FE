@@ -16,16 +16,17 @@ const Message = () => {
 
   const { messages, loading } = useGetMessages(6);
 
-  const className =
+  const bgClassName =
     'message-list-bg-' + (tapState === 'OPEN' ? 'open' : 'unopen');
 
   if (loading) return null;
 
   return (
-    <>
+    <div className="main">
       <Header back text="메세지 목록" />
       <Category tapState={tapState} setTapState={setTapState} />
-      <div className={className}>
+
+      <div className={bgClassName}>
         <div className="message-list-wrapper">
           {messages && messages.length > 0 ? (
             messages.map((m: MessageItem) => (
@@ -41,7 +42,7 @@ const Message = () => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
