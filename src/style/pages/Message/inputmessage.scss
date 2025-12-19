@@ -3,12 +3,14 @@
 @use '../../global/align.scss' as *;
 
 .inputmessage {
+  background-color: $color-background;
+  
   display: flex;
   flex-direction: column;
-  background-color: $color-background;
+  align-items: center;
+  width: 393px;
 
   &__content {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
