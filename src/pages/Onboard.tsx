@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { motion, useAnimationControls } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Button from "../components/common/Button";
 import snowman_v from "../assets/images/snowman_face_v.svg";
 import branch from "../assets/images/branch.svg";
@@ -8,11 +8,9 @@ import rock from "../assets/images/rock.svg";
 import scarf from "../assets/images/scarf.svg";
 import snowball from "../assets/images/snowball.svg";
 import '../style/pages/Onboard/onboard.scss';
-import { useEffect } from "react";
 
 const Onboard = () => {
   const navigate = useNavigate();
-  const controls = useAnimationControls();
 
   const materials = [
     {src : snowball, alt : "눈"},

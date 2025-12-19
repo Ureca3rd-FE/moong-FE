@@ -1,37 +1,31 @@
 import { useState } from "react";
 import api from "../hooks/api";
-
-interface SnowmanResponse {
-    message : string;
-}
-
-const postSnowmanApi = async (userId: number): Promise<SnowmanResponse> => {
-    const response = await api.post<SnowmanResponse>('/snowman', null, {
+const postSnowmanApi = async (userId) => {
+    const response = await api.post('/snowman', null, {
         params: { userId }
     });
     return response.data;
 };
-
 export const usePostSnowman = () => {
-    const [error, setError] = useState <string | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
-
-
-    const makesnowman = async (userId : number) : Promise<boolean> => {
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const makesnowman = async (userId) => {
         setLoading(true);
         setError(null);
-        try{
+        try {
             const response = await postSnowmanApi(userId);
             console.log('눈사람생성 성공', response.message);
             return true;
-        }catch (err : any) {
+        }
+        catch (err) {
             const errorMessage = err?.response?.data.message || '눈사람 생성에 실패했습니다.';
             setError(errorMessage);
             return false;
-        }finally{
+        }
+        finally {
             setLoading(false);
         }
     };
-    return {makesnowman,loading, error};
-}
+    return { makesnowman, loading, error };
+};
 export default usePostSnowman;

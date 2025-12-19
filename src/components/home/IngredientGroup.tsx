@@ -12,7 +12,7 @@ import HomeGroup from '../../assets/images/Home_Group.svg?react';
 import useUserInfo from '../../api/useUserInfo';
 
 const IngredientGroup = () => {
-  const {userInfo, loading, error}= useUserInfo();
+  const {userInfo}= useUserInfo();
 
   const ingredients = [
     {
@@ -45,10 +45,11 @@ const IngredientGroup = () => {
       imageInActive: scarfBImg,
       count: userInfo?.ingredient?.muffler,
     },
-  ];
+  ]; 
 
   const getIngredientImage = (item : typeof ingredients[0]) => {
-    return item.count >= 1 ? item.imageActive : item.imageInActive;
+    const count = item.count ?? 0;
+    return count >= 1 ? item.imageActive : item.imageInActive;
   }
 
   return (

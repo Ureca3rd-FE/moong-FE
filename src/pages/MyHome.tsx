@@ -10,8 +10,8 @@ import ShareGroup from '../components/home/ShareGroup';
 
 const MyHome = () => {
   const navigate = useNavigate();
-  const {userInfo, loading : userloading, error : usererror} = useUserInfo();
-  const {makesnowman, loading :snowmanloading, error :snowmanerror} = usePostSnowman();
+  const {userInfo} = useUserInfo();
+  const {makesnowman, error :snowmanerror} = usePostSnowman();
   
   const IngredientsAvailable = 
     (userInfo?.ingredient?.branch ?? 0) >= 1 &&

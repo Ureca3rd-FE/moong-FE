@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import BgDay from '../assets/images/bg_day.svg?react';
 import Button from '../components/common/Button';
