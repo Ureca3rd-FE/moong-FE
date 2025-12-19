@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Header } from '../components/common/Header';
 import Button from '../components/common/Button';
 
-import '../style/pages/Message/inputmessage.scss';
+import '../style/pages/message/inputmessage.scss';
 
 import WritingRed from '../assets/images/writing_red.svg?react';
 import WritingGold from '../assets/images/writing_gold.svg?react';
