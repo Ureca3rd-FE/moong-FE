@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Header } from '../components/common/Header';
@@ -12,7 +12,6 @@ import WritingGold from '../assets/images/writing_gold.svg?react';
 import WritingGreen from '../assets/images/writing_green.svg?react';
 import WritingSilver from '../assets/images/writing_silver.svg?react';
 import WritingNavy from '../assets/images/writing_navy.svg?react';
-import TextField from '../components/common/TextField';
 import { usePostMessage } from '../api/usePostMessage';
 
 const THEMES = [

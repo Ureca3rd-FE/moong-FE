@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import api from "../hooks/api";
-import { data } from "react-router-dom";
 
 interface SnowmanResponse {
     message : string;

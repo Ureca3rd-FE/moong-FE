@@ -12,7 +12,6 @@ const NicknameInput = lazy(() => import('../pages/NicknameInput'));
 const SelectTheme = lazy(() => import('../pages/SelectTheme'));
 const Message = lazy(() => import('../pages/Message/Message'));
 const MessageDetail = lazy(() => import('../pages/Message/MessageDetail'));
-const CreateMessage = lazy(() => import('../pages/Message/CreateMessage'));
 const Onboard = lazy(() => import('../pages/Onboard'));
 const OnboardSuccess = lazy(() => import('../pages/OnboardSuccess'));
 const InputMessage = lazy(() => import('../pages/InputMessage'));
@@ -80,22 +79,6 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/:userId',
-    element: (
-      <Suspense fallback={<Loading />}>
-        <OthersHome />
-      </Suspense>
-    ),
-  },
-  {
-    path: '/message/write',
-    element: (
-      <Suspense fallback={<Loading />}>
-        <CreateMessage />
-      </Suspense>
-    ),
-  },
-  {
     path: 'message',
     element: (
       <Suspense fallback={<Loading />}>
@@ -141,6 +124,14 @@ const router = createBrowserRouter([
     element: (
       <Suspense fallback={<Loading />}>
         <MessageSuccess />
+      </Suspense>
+    ),
+  },
+  {
+    path: 'othershome',
+    element: (
+      <Suspense fallback={<Loading />}>
+        <OthersHome />
       </Suspense>
     ),
   },

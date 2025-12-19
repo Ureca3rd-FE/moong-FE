@@ -13,7 +13,7 @@ const Login = () => {
     const [nickname, setNickname] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
-    const {login, loading, error} = useLogin();
+    const {login} = useLogin();
 
     const handleLogin = async () => {
       if(!nickname.trim()){

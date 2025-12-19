@@ -3,15 +3,8 @@
 @use './global/align.scss' as *;
 
 .selectTheme {
-  position: fixed; 
   background-color: $color-background;
-  top: 0; left: 0; right: 0; bottom: 0;
-  width: 100vw; 
-  height: 100vh;
-  height: 100dvh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +12,6 @@
 
   &__content {
     width: 100%;
-    padding: 0 20px;
     
     display: flex;
     flex-direction: column;
