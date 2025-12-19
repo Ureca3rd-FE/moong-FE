@@ -1,26 +1,39 @@
-%message-list-background {
-  width: 100vw;
-  height: calc(100vh - 50px);
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: cover;
-}
+.main {
+  width: 393px;
+  height: 852px;
 
-.message-list-bg-open {
-  @extend %message-list-background;
-  background-image: url('/images/bg_day.svg');
-}
-
-.message-list-bg-unopen {
-  @extend %message-list-background;
-  background-image: url('/images/bg_night.svg');
-}
-
-.message-list-wrapper {
   display: flex;
-  gap: 20px;
-  align-items: flex-end;
+  flex-direction: column;
 
-  overflow-x: auto;
-  height: 100%;
+  %message-list-background {
+    width: 100%;
+    flex: 1;
+    
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+  }
+
+  .message-list-bg-open {
+    @extend %message-list-background;
+    background-image: url('/images/bg_day.svg');
+  }
+
+  .message-list-bg-unopen {
+    @extend %message-list-background;
+    background-image: url('/images/bg_night.svg');
+  }
+
+  .message-list-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    
+    overflow-x: auto;
+    height: 100%;
+  }
 }
