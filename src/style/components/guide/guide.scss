@@ -36,9 +36,9 @@
 
 .guide-line {
   background-color: $color-main;
+  position: absolute; 
   height: 100px;
   width: 1.5px;
-  position: fixed;
   z-index: 99;
   right: 39.5px;
   top: 52px;
@@ -56,6 +56,10 @@
     top: 121px;
     left: 22.2px;
     right: 24.2px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
