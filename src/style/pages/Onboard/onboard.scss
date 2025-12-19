@@ -2,9 +2,22 @@
 @use '../../global/text-style.scss' as *;
 
 .onboard {
-  min-height: 100vh;
   background-color: $color-background;
+  width: 393px;
+  height: 852px;
+  min-height: 852px;
+
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 33px;
+  box-sizing: border-box;
+
+  
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 0 33px;
@@ -38,14 +51,13 @@
     display: flex;
     align-items: center;
     gap: 41px;
-    animation : linear infinite;
     margin-bottom: 32px;
   }
 
   &__material {
     width: 80px;
     height: 80px;
-    flex-shrink: 0; //크기고정
+
     object-fit: contain;
 
     &:hover {
