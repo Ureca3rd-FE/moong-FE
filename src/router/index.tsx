@@ -80,22 +80,6 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/:userId',
-    element: (
-      <Suspense fallback={<Loading />}>
-        <OthersHome />
-      </Suspense>
-    ),
-  },
-  {
-    path: '/message/write',
-    element: (
-      <Suspense fallback={<Loading />}>
-        <CreateMessage />
-      </Suspense>
-    ),
-  },
-  {
     path: 'message',
     element: (
       <Suspense fallback={<Loading />}>
