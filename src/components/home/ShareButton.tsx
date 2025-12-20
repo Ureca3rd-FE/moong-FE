@@ -5,6 +5,7 @@ import Link from '../../assets/images/link.svg?react';
 const KAKAO_APP_KEY = import.meta.env.VITE_KAKAO_APP_KEY;
 const TEMPLATE_ID = Number(import.meta.env.VITE_KAKAO_TEMPLATE_KEY);
 const SHARE_URL = 'http://localhost:3000';
+const userId = Number(localStorage.getItem('userId'));
 
 const ShareButton = ({ type }: { type: 'kakao' | 'link' }) => {
   const sendFoolMessage = () => {
@@ -37,7 +38,7 @@ const ShareButton = ({ type }: { type: 'kakao' | 'link' }) => {
         <button
           className="link-share-button"
           onClick={() => {
-            navigator.clipboard.writeText(SHARE_URL);
+            navigator.clipboard.writeText(`${SHARE_URL}/home/${userId}`);
           }}
         >
           <Link />

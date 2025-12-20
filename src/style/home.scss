@@ -44,7 +44,7 @@
   &__user-section {
     position: absolute;
     top: 91px;
-    margin-left: -80px;
+    left: 10px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -177,7 +177,6 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 21px 30px;
-
   }
 
   &__ingredient-item {

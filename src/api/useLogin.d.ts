@@ -5,9 +5,10 @@ interface LoginRequest {
 interface LoginResponse {
     accessToken: string;
     refreshToken: string;
-    accessTokenExpiredAt: string;
-    refreshTokenExpiredAt: string;
+    accessTokenExpiredAt: number;
+    refreshTokenExpiredAt: number;
     userId: number;
+    first: boolean;
 }
 export declare const useLogin: () => {
     login: (credentials: LoginRequest) => Promise<LoginResponse | null>;

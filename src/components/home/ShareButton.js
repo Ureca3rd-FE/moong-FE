@@ -5,6 +5,7 @@ import Link from '../../assets/images/link.svg?react';
 const KAKAO_APP_KEY = import.meta.env.VITE_KAKAO_APP_KEY;
 const TEMPLATE_ID = Number(import.meta.env.VITE_KAKAO_TEMPLATE_KEY);
 const SHARE_URL = 'http://localhost:3000';
+const userId = Number(localStorage.getItem('userId'));
 const ShareButton = ({ type }) => {
     const sendFoolMessage = () => {
         if (window.Kakao && window.Kakao.Link) {
@@ -32,7 +33,7 @@ const ShareButton = ({ type }) => {
         }
     }, []);
     return (_jsxs(_Fragment, { children: [type === 'link' && (_jsx("button", { className: "link-share-button", onClick: () => {
-                    navigator.clipboard.writeText(SHARE_URL);
+                    navigator.clipboard.writeText(`${SHARE_URL}/home/${userId}`);
                 }, children: _jsx(Link, {}) })), type === 'kakao' && (_jsx("button", { className: "kakao-share-button", disabled: !isKakaoReady, onClick: sendFoolMessage, children: _jsx(Kakao, {}) }))] }));
 };
 export default ShareButton;
