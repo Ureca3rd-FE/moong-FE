@@ -33,7 +33,7 @@ const ShareButton = ({ type }) => {
         }
     }, []);
     return (_jsxs(_Fragment, { children: [type === 'link' && (_jsx("button", { className: "link-share-button", onClick: () => {
-                    navigator.clipboard.writeText(`${SHARE_URL}/${userId}`);
+                    navigator.clipboard.writeText(`${SHARE_URL}/home/${userId}`);
                 }, children: _jsx(Link, {}) })), type === 'kakao' && (_jsx("button", { className: "kakao-share-button", disabled: !isKakaoReady, onClick: sendFoolMessage, children: _jsx(Kakao, {}) }))] }));
 };
 export default ShareButton;
