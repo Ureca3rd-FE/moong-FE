@@ -15,7 +15,6 @@ const MyHome = () => {
     const { userInfo } = useUserInfo();
     const { makesnowman, error: snowmanerror } = usePostSnowman();
     const location = useLocation();
-    console.log('???', location);
     useEffect(() => {
         // 1. 가이드에서 넘겨준 state가 있는지 확인
         if (location.state?.isFirstVisit) {
