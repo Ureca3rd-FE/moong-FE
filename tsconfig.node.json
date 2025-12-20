@@ -23,5 +23,5 @@
 
     "composite": true
   },
-  "include": []
+  "include": ["vite.config.ts", "package.json", "**/*.d.ts"]
 }
