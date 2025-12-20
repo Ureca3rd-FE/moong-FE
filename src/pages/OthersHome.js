@@ -5,16 +5,13 @@ import Button from '../components/common/Button';
 import useUserInfo from '../api/useUserInfo';
 const OthersHome = () => {
     const navigate = useNavigate();
-    // 1. API를 통해 유저 정보를 가져옵니다.
     const { userInfo, loading, error } = useUserInfo();
-    // 2. navigate 시 전달할 이름을 결정 (데이터가 없을 때를 대비해 기본값 설정)
-    const receivedName = userInfo?.nickname || '나원빈';
+    const receivedName = userInfo?.nickname || '이름 없음';
     const handleStart = () => {
         navigate('/nicknameinput', {
             state: { receivedName },
         });
     };
-    // 3. 로딩 처리 (선택 사항: 로딩 중일 때 빈 화면이나 스피너를 보여줄 수 있습니다)
     if (loading)
         return _jsx("div", { className: "others-home", children: "\uB85C\uB529 \uC911..." });
     if (error)
