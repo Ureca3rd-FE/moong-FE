@@ -20,7 +20,7 @@ const Guide = () => {
     }, []);
     function handleNext() {
         if (stepState === FUNNEL_STEPS[FUNNEL_STEPS.length - 1]) {
-            navigate('/');
+            navigate('/', { state: { isFirstVisit: true } });
         }
         else
             setStepState(stepState + 1);

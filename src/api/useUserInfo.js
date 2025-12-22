@@ -1,39 +1,34 @@
-import { useEffect, useState } from "react";
-import api from "../hooks/api";
-const getUserInfo = async () => {
-    return api.get('/member/homeinfo');
-};
-export const useUserInfo = () => {
+import { useEffect, useState } from 'react';
+import api from '../hooks/api';
+export const useUserInfo = (id) => {
     const [userInfo, setUserInfo] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-    const fetchUserInfo = async () => {
-        console.log('fetchUseerInfo시작');
-        setLoading(true);
-        setError(null);
-        try {
-            const response = await getUserInfo();
-            console.log('API응답 : ', response.data);
-            setUserInfo(response.data);
-            setError(null);
-        }
-        catch (err) {
-            console.log('api에러 :', err);
-            console.log('응답에러 : ', err.response);
-            const errorMessage = err.response?.data?.message || '사용자 정보 불러오기 실패';
-            setError(errorMessage);
-        }
-        finally {
-            setLoading(false);
-            console.log('fetchUserInfo완료');
-        }
-    };
     useEffect(() => {
+        if (!id) {
+            setLoading(false);
+            return;
+        }
+        const fetchUserInfo = async () => {
+            setLoading(true);
+            setError(null);
+            try {
+                // api.ts에서 baseURL이 '/api'이므로 실제 경로는 '/api/user/9'가 됩니다.
+                const response = await api.get(`/user/${id}`);
+                console.log('✅ [Step 5] API 응답 성공:', response.data);
+                setUserInfo(response.data);
+            }
+            catch (err) {
+                console.error('❌ [Step 6] API 호출 실패:', err);
+                setError(err.response?.data?.message || '사용자 정보를 불러올 수 없습니다.');
+            }
+            finally {
+                setLoading(false);
+                console.log('🏁 [Step 7] 로딩 종료.');
+            }
+        };
         fetchUserInfo();
-    }, []);
-    const refetch = () => {
-        fetchUserInfo();
-    };
-    return { userInfo, loading, error, refetch };
+    }, [id]);
+    return { userInfo, loading, error };
 };
 export default useUserInfo;

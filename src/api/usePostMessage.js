@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import api from '../hooks/api';
 export const usePostMessage = () => {
     const [loading, setLoading] = useState(false);
@@ -7,7 +7,7 @@ export const usePostMessage = () => {
         setLoading(true);
         setError(null);
         try {
-            const response = await api.post('/api/messages', data);
+            const response = await api.post('/messages', data);
             return response.data;
         }
         catch (err) {

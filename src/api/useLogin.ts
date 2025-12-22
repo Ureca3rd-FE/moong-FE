@@ -1,54 +1,63 @@
-import { useState } from "react";
-import api from "../hooks/api";
+import { useState } from 'react';
+import api from '../hooks/api';
 
 interface LoginRequest {
-    nickname: string;
-    password: string;
+  nickname: string;
+  password: string;
 }
 
 interface LoginResponse {
-    accessToken: string;
-    refreshToken: string;
-    accessTokenExpiredAt: string;
-    refreshTokenExpiredAt: string;
-    userId :number;
+  accessToken: string;
+  refreshToken: string;
+  accessTokenExpiredAt: number;
+  refreshTokenExpiredAt: number;
+  userId: number;
+  first: boolean;
 }
 
-const loginApi = async (credentials: LoginRequest) => {
-    return api.post<LoginResponse>('/member/login', credentials); 
-};
-
-/* const { login, loading, error } = useLogin();
- */
 export const useLogin = () => {
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-    const login = async (credentials: LoginRequest): Promise<LoginResponse | null> => {
-        setLoading(true);
-        setError(null);
+  const login = async (
+    credentials: LoginRequest,
+  ): Promise<LoginResponse | null> => {
+    setLoading(true);
+    setError(null);
 
-        try {
-            const response = await loginApi(credentials);
+    try {
+      // API 호출 시 제네릭 사용
+      const response = await api.post<LoginResponse>(
+        '/user/login',
+        credentials,
+      );
+      const data = response.data;
 
-            localStorage.setItem('accessToken', response.data.accessToken);
-            localStorage.setItem('refreshToken', response.data.refreshToken);
-            localStorage.setItem('accessTokenExpiredAt', response.data.accessTokenExpiredAt);
-            localStorage.setItem('refreshTokenExpiredAt', response.data.refreshTokenExpiredAt);
-            localStorage.setItem('userId', String(response.data.userId));
-            
-            return response.data;
-        } catch (err: any) {
-            const errorMessage = 
-                err.response?.data?.message || '로그인 실패. 닉네임과 비밀번호를 확인해주세요.'; 
-            setError(errorMessage);
-            return null;
-        } finally {
-            setLoading(false);
-        }
-    };
+      localStorage.setItem('accessToken', data.accessToken);
+      localStorage.setItem('refreshToken', data.refreshToken);
+      localStorage.setItem(
+        'accessTokenExpiredAt',
+        String(data.accessTokenExpiredAt),
+      );
+      localStorage.setItem(
+        'refreshTokenExpiredAt',
+        String(data.refreshTokenExpiredAt),
+      );
+      localStorage.setItem('userId', String(data.userId));
 
-    return { login, loading, error };
+      return data;
+    } catch (err: any) {
+      const errorMessage =
+        err.response?.data?.message ||
+        '로그인 실패. 닉네임과 비밀번호를 확인해주세요.';
+      setError(errorMessage);
+      return null;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { login, loading, error };
 };
 
 export default useLogin;

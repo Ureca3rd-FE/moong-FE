@@ -18,7 +18,6 @@ const InputMessage = lazy(() => import('../pages/InputMessage'));
 const MessageSuccess = lazy(() => import('../pages/MessageSuccess'));
 const SnowmanMessage = lazy(() => import('../pages/SnowMessage'));
 
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -38,18 +37,18 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path : 'snowman',
-    element : (
-      <Suspense fallback = {<Loading/>}>
-        <SnowmanMessage/>
+    path: 'snowman',
+    element: (
+      <Suspense fallback={<Loading />}>
+        <SnowmanMessage />
       </Suspense>
-    )
+    ),
   },
   {
-    path : 'onboard',
-    element : (
-      <Suspense fallback = {<Loading/>}>
-        <Onboard/>
+    path: 'onboard',
+    element: (
+      <Suspense fallback={<Loading />}>
+        <Onboard />
       </Suspense>
     ),
   },
@@ -128,7 +127,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: 'othershome',
+    path: 'home/:userId',
     element: (
       <Suspense fallback={<Loading />}>
         <OthersHome />

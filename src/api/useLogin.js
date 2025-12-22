@@ -1,10 +1,5 @@
-import { useState } from "react";
-import api from "../hooks/api";
-const loginApi = async (credentials) => {
-    return api.post('/member/login', credentials);
-};
-/* const { login, loading, error } = useLogin();
- */
+import { useState } from 'react';
+import api from '../hooks/api';
 export const useLogin = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -12,16 +7,19 @@ export const useLogin = () => {
         setLoading(true);
         setError(null);
         try {
-            const response = await loginApi(credentials);
-            localStorage.setItem('accessToken', response.data.accessToken);
-            localStorage.setItem('refreshToken', response.data.refreshToken);
-            localStorage.setItem('accessTokenExpiredAt', response.data.accessTokenExpiredAt);
-            localStorage.setItem('refreshTokenExpiredAt', response.data.refreshTokenExpiredAt);
-            localStorage.setItem('userId', String(response.data.userId));
-            return response.data;
+            // API 호출 시 제네릭 사용
+            const response = await api.post('/user/login', credentials);
+            const data = response.data;
+            localStorage.setItem('accessToken', data.accessToken);
+            localStorage.setItem('refreshToken', data.refreshToken);
+            localStorage.setItem('accessTokenExpiredAt', String(data.accessTokenExpiredAt));
+            localStorage.setItem('refreshTokenExpiredAt', String(data.refreshTokenExpiredAt));
+            localStorage.setItem('userId', String(data.userId));
+            return data;
         }
         catch (err) {
-            const errorMessage = err.response?.data?.message || '로그인 실패. 닉네임과 비밀번호를 확인해주세요.';
+            const errorMessage = err.response?.data?.message ||
+                '로그인 실패. 닉네임과 비밀번호를 확인해주세요.';
             setError(errorMessage);
             return null;
         }
