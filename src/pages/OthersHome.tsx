@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom'; // useParams 추가
 import BgDay from '../assets/images/bg_day.svg?react';
 import Button from '../components/common/Button';
 import useUserInfo from '../api/useUserInfo';
@@ -6,9 +6,12 @@ import useUserInfo from '../api/useUserInfo';
 const OthersHome = () => {
   const navigate = useNavigate();
 
-  const { userInfo, loading, error } = useUserInfo();
+  const { userId } = useParams();
+  console.log('렌더링됨! userId:', userId); // 이게 안 찍히면 라우터 문제
 
-  const receivedName = userInfo?.nickname || '이름 없음';
+  const { userInfo } = useUserInfo(userId);
+
+  const receivedName = userInfo?.nickname;
 
   const handleStart = () => {
     navigate('/nicknameinput', {
@@ -16,9 +19,9 @@ const OthersHome = () => {
     });
   };
 
-  if (loading) return <div className="others-home">로딩 중...</div>;
-  if (error)
-    return <div className="others-home">에러가 발생했습니다: {error}</div>;
+  // if (loading) return <div className="others-home">로딩 중...</div>;
+  // if (error)
+  //   return <div className="others-home">에러가 발생했습니다: {error}</div>;
 
   return (
     <div className="others-home">

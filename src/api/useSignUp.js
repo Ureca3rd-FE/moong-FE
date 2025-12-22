@@ -1,12 +1,12 @@
-import { useState } from "react";
-import api from "../hooks/api";
+import { useState } from 'react';
+import api from '../hooks/api';
 const signupApi = async (credentials) => {
     console.log('===== 회원가입 API 호출=====');
     console.log('전송 데이터:', credentials);
     console.log('닉네임:', credentials.nickname, '/ 길이:', credentials.nickname.length);
     console.log('비밀번호:', credentials.password, '/ 길이:', credentials.password.length);
     console.log('비밀번호 타입:', typeof credentials.password);
-    return api.post('/member/signup', credentials);
+    return api.post('/user/signup', credentials);
 };
 /* const { signup, loading, error } = useSignup();
  */

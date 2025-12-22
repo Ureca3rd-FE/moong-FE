@@ -28,7 +28,7 @@ export const useLogin = () => {
     try {
       // API 호출 시 제네릭 사용
       const response = await api.post<LoginResponse>(
-        '/member/login',
+        '/user/login',
         credentials,
       );
       const data = response.data;

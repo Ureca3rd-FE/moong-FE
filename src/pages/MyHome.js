@@ -23,7 +23,7 @@ const MyHome = () => {
                 // 2. 비동기 API 호출
                 const completeFirstVisit = async () => {
                     try {
-                        await api.patch(`/member/${userId}/first-visit`);
+                        await api.patch(`/user/${userId}/first-visit`);
                         console.log('첫 방문 처리 완료');
                         // 3. (선택사항) 처리가 끝난 후 다시 들어왔을 때 또 실행되지 않도록 state를 비워줍니다.
                         window.history.replaceState({}, document.title);

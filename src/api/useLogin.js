@@ -8,7 +8,7 @@ export const useLogin = () => {
         setError(null);
         try {
             // API 호출 시 제네릭 사용
-            const response = await api.post('/member/login', credentials);
+            const response = await api.post('/user/login', credentials);
             const data = response.data;
             localStorage.setItem('accessToken', data.accessToken);
             localStorage.setItem('refreshToken', data.refreshToken);

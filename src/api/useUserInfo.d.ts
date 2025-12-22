@@ -8,10 +8,9 @@ interface UserInfo {
         muffler: number;
     };
 }
-export declare const useUserInfo: () => {
+export declare const useUserInfo: (id?: string) => {
     userInfo: UserInfo | null;
     loading: boolean;
     error: string | null;
-    refetch: () => void;
 };
 export default useUserInfo;
